@@ -2,74 +2,70 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <title>ZYNX – Custom PC’s België</title>
+  <title>Custom PC’s op maat in België | ZYNX</title>
+  <meta name="description" content="ZYNX bouwt custom gaming pc’s, office pc’s en AI workstations in België. Betrouwbaar, getest en persoonlijk gebouwd.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
+    :root {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --accent: #2563eb;
+    }
+
+    body.dark {
+      --bg: #020617;
+      --card: #0f172a;
+      --text: #e5e7eb;
+      --accent: #38bdf8;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f4f7fb;
-      color: #1f2937;
+      background: var(--bg);
+      color: var(--text);
     }
 
     header {
-      background: linear-gradient(135deg, #0f172a, #0b3c5d);
+      background: linear-gradient(135deg, #020617, #0b3c5d);
       color: white;
-      padding: 70px 20px;
+      padding: 60px 20px;
       text-align: center;
+      position: relative;
     }
 
     header img {
-      max-width: 260px;
+      max-width: 240px;
       margin-bottom: 20px;
     }
 
-    header h1 {
-      font-size: 34px;
-      margin-bottom: 10px;
-    }
-
-    header p {
+    .toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
       font-size: 18px;
-      opacity: 0.95;
-    }
-
-    .trust {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 30px;
-      font-size: 15px;
     }
 
     nav {
       background: #020617;
-      padding: 15px;
+      padding: 14px;
       text-align: center;
     }
 
     nav a {
       color: white;
+      margin: 0 15px;
       text-decoration: none;
-      margin: 0 18px;
       font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #38bdf8;
     }
 
     section {
       max-width: 1100px;
       margin: auto;
       padding: 50px 20px;
-    }
-
-    h2 {
-      color: #0b3c5d;
-      margin-bottom: 30px;
     }
 
     .grid {
@@ -79,81 +75,35 @@
     }
 
     .card {
-      background: white;
-      border-radius: 12px;
+      background: var(--card);
       padding: 25px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      position: relative;
-    }
-
-    .badge {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: #2563eb;
-      color: white;
-      padding: 6px 10px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: bold;
-    }
-
-    .card h3 {
-      color: #2563eb;
-      margin-top: 0;
-    }
-
-    ul {
-      padding-left: 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
     .price {
       font-size: 22px;
-      font-weight: bold;
       color: #16a34a;
-      margin-top: 15px;
-    }
-
-    .guarantee {
-      font-size: 14px;
+      font-weight: bold;
       margin-top: 10px;
-      color: #374151;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 18px;
-      padding: 12px 22px;
-      background: #2563eb;
+      margin-top: 15px;
+      background: var(--accent);
       color: white;
+      padding: 12px 22px;
       border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
-    }
-
-    .btn:hover {
-      background: #1d4ed8;
-    }
-
-    .contact-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #2563eb;
-      color: white;
-      padding: 14px 20px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     }
 
     footer {
       background: #020617;
       color: #9ca3af;
       text-align: center;
-      padding: 30px 15px;
-      font-size: 14px;
+      padding: 25px;
     }
   </style>
 </head>
@@ -161,113 +111,73 @@
 <body>
 
 <header>
+  <div class="toggle" onclick="toggleMode()">🌙</div>
   <img src="logo.png" alt="ZYNX Logo">
-  <h1>Custom PC’s in België – persoonlijk gebouwd, getest en ondersteund</h1>
-  <p>PC’s op maat. Betrouwbaar gebouwd.</p>
-
-  <div class="trust">
-    <div>✔ Gebouwd in België</div>
-    <div>✔ Grondig getest</div>
-    <div>✔ 1 jaar garantie</div>
-    <div>✔ Persoonlijke service</div>
-  </div>
+  <h1>Custom PC’s in België – persoonlijk gebouwd</h1>
+  <p>Gaming • Office • AI / Workstation</p>
 </header>
 
 <nav>
-  <a href="#shop">Shop</a>
-  <a href="#custom">Custom PC</a>
-  <a href="#voorwaarden">Voorwaarden</a>
-  <a href="#contact">Contact</a>
+  <a href="index.html">Shop</a>
+  <a href="custom.html">Custom PC</a>
+  <a href="voorwaarden.html">Voorwaarden</a>
 </nav>
 
-<section id="shop">
+<section>
   <h2>🛒 Onze PC’s</h2>
 
   <div class="grid">
-
     <div class="card">
       <h3>🖥️ Office PC</h3>
+      <p>Ideaal voor werk en school</p>
       <ul>
-        <li>Intel Core i5</li>
+        <li>Intel i5</li>
         <li>16GB RAM</li>
-        <li>512GB NVMe SSD</li>
-        <li>Stil & energiezuinig</li>
+        <li>512GB NVMe</li>
       </ul>
       <div class="price">Vanaf €649</div>
-      <div class="guarantee">🛡 1 jaar garantie</div>
       <a class="btn" href="mailto:computerbuilderzynx@gmail.com">Vraag offerte</a>
     </div>
 
     <div class="card">
       <h3>🎮 Gaming PC</h3>
+      <p>Voor moderne games</p>
       <ul>
         <li>Ryzen 7</li>
         <li>RTX 4070</li>
         <li>32GB RAM</li>
-        <li>1TB NVMe SSD</li>
       </ul>
       <div class="price">Vanaf €1.399</div>
-      <div class="guarantee">🛡 1 jaar garantie</div>
       <a class="btn" href="mailto:computerbuilderzynx@gmail.com">Vraag offerte</a>
     </div>
 
     <div class="card">
-      <span class="badge">AI • WORK</span>
       <h3>🤖 AI / Workstation</h3>
+      <p>Voor AI, Blender & development</p>
       <ul>
         <li>Ryzen 9</li>
         <li>RTX 4090</li>
         <li>64GB RAM</li>
-        <li>2TB NVMe SSD</li>
       </ul>
       <div class="price">Vanaf €2.999</div>
-      <div class="guarantee">🛡 1 jaar garantie</div>
       <a class="btn" href="mailto:computerbuilderzynx@gmail.com">Vraag offerte</a>
     </div>
-
   </div>
 </section>
-
-<section id="custom">
-  <div class="card">
-    <h2>⭐ Custom PC</h2>
-    <p>
-      Volledig op maat voor gaming, AI, Blender, development of professioneel werk.
-      Jij kiest, wij bouwen.
-    </p>
-    <a class="btn" href="mailto:computerbuilderzynx@gmail.com">Custom offerte aanvragen</a>
-  </div>
-</section>
-
-<section id="voorwaarden">
-  <div class="card">
-    <h2>📄 Algemene voorwaarden</h2>
-    <p>
-      • Alle systemen worden getest<br>
-      • 1 jaar garantie op onderdelen & assemblage<br>
-      • Betaling vooraf bij custom builds<br>
-      • Software van derden valt buiten garantie
-    </p>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="card">
-    <h2>📞 Contact</h2>
-    <p>
-      📧 computerbuilderzynx@gmail.com<br>
-      📱 +32 494 93 84 60
-    </p>
-  </div>
-</section>
-
-<a class="contact-float" href="mailto:computerbuilderzynx@gmail.com">
-  ✉ Contact
-</a>
 
 <footer>
-  © 2026 ZYNX – PC’s op maat. Betrouwbaar gebouwd.
+  © 2026 ZYNX – Custom PC’s België
 </footer>
+
+<script>
+  function toggleMode() {
+    document.body.classList.toggle("dark");
+    localStorage.setItem("mode", document.body.classList.contains("dark"));
+  }
+  if (localStorage.getItem("mode") === "true") {
+    document.body.classList.add("dark");
+  }
+</script>
 
 </body>
 </html>
