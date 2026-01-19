@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Bedankt voor je bestelling | ZYNX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --accent: #2563eb;
+    }
+
+    body.dark {
+      --bg: #020617;
+      --card: #0f172a;
+      --text: #e5e7eb;
+      --accent: #38bdf8;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      background: linear-gradient(135deg, #020617, #0b3c5d);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    header img {
+      max-width: 220px;
+      margin-bottom: 15px;
+    }
+
+    nav {
+      background: #020617;
+      padding: 14px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      max-width: 700px;
+      margin: auto;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 40px 30px;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    h1 {
+      color: var(--accent);
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      background: var(--accent);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #020617;
+      color: #9ca3af;
+      text-align: center;
+      padding: 25px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png" alt="ZYNX Logo">
+  <h1>Bestelling ontvangen</h1>
+  <p>Bedankt voor je vertrouwen</p>
+</header>
+
+<nav>
+  <a href="index.html">Shop</a>
+  <a href="custom.html">Custom PC</a>
+  <a href="voorwaarden.html">Voorwaarden</a>
+</nav>
+
+<section>
+  <div class="card">
+    <h1>✅ Bedankt!</h1>
+    <p>
+      We hebben je bestelling goed ontvangen.<br><br>
+      Je ontvangt binnenkort een factuur per e-mail.<br>
+      <strong>Na ontvangst van de betaling starten we met de assemblage.</strong>
+    </p>
+
+    <p>
+      ✔ Voorafbetaling vereist<br>
+      ✔ 1 jaar garantie<br>
+      ✔ Custom PC, speciaal voor jou gebouwd
+    </p>
+
+    <a class="btn" href="index.html">Terug naar de shop</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 ZYNX – Custom PC’s België
+</footer>
+
+<script>
+  if (localStorage.getItem("mode") === "true") {
+    document.body.classList.add("dark");
+  }
+</script>
+
+</body>
+</html>
