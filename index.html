@@ -2,8 +2,7 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <title>Custom PC’s op maat in België | ZYNX</title>
-  <meta name="description" content="ZYNX bouwt custom gaming pc’s, office pc’s en AI workstations in België. Betrouwbaar, getest en persoonlijk gebouwd.">
+  <title>ZYNX PC Builds België</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
@@ -12,13 +11,6 @@
       --card: #ffffff;
       --text: #0f172a;
       --accent: #2563eb;
-    }
-
-    body.dark {
-      --bg: #020617;
-      --card: #0f172a;
-      --text: #e5e7eb;
-      --accent: #38bdf8;
     }
 
     body {
@@ -33,20 +25,11 @@
       color: white;
       padding: 60px 20px;
       text-align: center;
-      position: relative;
     }
 
     header img {
-      max-width: 240px;
-      margin-bottom: 20px;
-    }
-
-    .toggle {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      cursor: pointer;
-      font-size: 18px;
+      max-width: 220px;
+      margin-bottom: 15px;
     }
 
     nav {
@@ -63,40 +46,43 @@
     }
 
     section {
-      max-width: 1100px;
+      max-width: 1000px;
       margin: auto;
       padding: 50px 20px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
     }
 
     .card {
       background: var(--card);
       padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    h2 {
+      color: var(--accent);
     }
 
     .price {
       font-size: 22px;
-      color: #16a34a;
       font-weight: bold;
-      margin-top: 10px;
+      margin: 10px 0;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 15px;
       background: var(--accent);
       color: white;
       padding: 12px 22px;
       border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
+      margin-top: 10px;
     }
 
     footer {
@@ -104,6 +90,7 @@
       color: #9ca3af;
       text-align: center;
       padding: 25px;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -111,73 +98,62 @@
 <body>
 
 <header>
-  <div class="toggle" onclick="toggleMode()">🌙</div>
   <img src="logo.png" alt="ZYNX Logo">
-  <h1>Custom PC’s in België – persoonlijk gebouwd</h1>
-  <p>Gaming • Office • AI / Workstation</p>
+  <h1>ZYNX PC Builds België</h1>
+  <p>Custom PC’s – voorafbetaling – 1 jaar garantie</p>
 </header>
 
 <nav>
   <a href="index.html">Shop</a>
-  <a href="custom.html">Custom PC</a>
+  <a href="faq.html">FAQ</a>
   <a href="voorwaarden.html">Voorwaarden</a>
 </nav>
 
 <section>
-  <h2>🛒 Onze PC’s</h2>
-
   <div class="grid">
+
     <div class="card">
-      <h3>🖥️ Office PC</h3>
-      <p>Ideaal voor werk en school</p>
+      <h2>🖥️ Office PC</h2>
+      <p>Perfect voor school, werk en administratie.</p>
       <ul>
-        <li>Intel i5</li>
+        <li>Intel i5 / Ryzen 5</li>
         <li>16GB RAM</li>
-        <li>512GB NVMe</li>
+        <li>1TB SSD</li>
       </ul>
       <div class="price">Vanaf €649</div>
-     <a class="btn" href="bestel.html">Bestel deze PC</a>
+      <a class="btn" href="bestel.html?pc=office">Bestel deze PC</a>
     </div>
 
     <div class="card">
-      <h3>🎮 Gaming PC</h3>
-      <p>Voor moderne games</p>
+      <h2>🎮 Gaming PC</h2>
+      <p>Hoge FPS, upgradebaar en stil.</p>
       <ul>
-        <li>Ryzen 7</li>
-        <li>RTX 4070</li>
+        <li>Ryzen 7 / Intel i7</li>
         <li>32GB RAM</li>
+        <li>RTX 4070 / RX 7800 XT</li>
       </ul>
       <div class="price">Vanaf €1.399</div>
- <a class="btn" href="bestel.html">Bestel deze PC</a>
+      <a class="btn" href="bestel.html?pc=gaming">Bestel deze PC</a>
     </div>
 
     <div class="card">
-      <h3>🤖 AI / Workstation</h3>
-      <p>Voor AI, Blender & development</p>
+      <h2>🤖 AI / Workstation</h2>
+      <p>Voor AI, rendering en zware workloads.</p>
       <ul>
-        <li>Ryzen 9</li>
-        <li>RTX 4090</li>
+        <li>Ryzen 9 / Intel i9</li>
         <li>64GB RAM</li>
+        <li>RTX 4080+</li>
       </ul>
       <div class="price">Vanaf €2.999</div>
-<a class="btn" href="bestel.html">Bestel deze PC</a>
+      <a class="btn" href="bestel.html?pc=ai">Bestel deze PC</a>
     </div>
+
   </div>
 </section>
 
 <footer>
   © 2026 ZYNX – Custom PC’s België
 </footer>
-
-<script>
-  function toggleMode() {
-    document.body.classList.toggle("dark");
-    localStorage.setItem("mode", document.body.classList.contains("dark"));
-  }
-  if (localStorage.getItem("mode") === "true") {
-    document.body.classList.add("dark");
-  }
-</script>
 
 </body>
 </html>
