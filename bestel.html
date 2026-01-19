@@ -155,7 +155,12 @@
   <div class="card">
     <h2>Bestelformulier</h2>
 
-    <form action="mailto:computerbuilderzynx@gmail.com" method="post" enctype="text/plain">
+    <form
+  action="mailto:computerbuilderzynx@gmail.com"
+  method="post"
+  enctype="text/plain"
+  onsubmit="setTimeout(function(){ window.location.href='bedankt.html'; }, 500);"
+>
 
       <label>Welke PC wil je bestellen?</label>
       <select name="PC type" required>
