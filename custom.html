@@ -96,7 +96,7 @@
     }
 
     button {
-      margin-top:25px;
+      margin-top:20px;
       width:100%;
       padding:16px;
       background:var(--accent);
@@ -150,7 +150,7 @@
 
 <header>
   <h1>Custom PC offerte</h1>
-  <p>Stel je PC samen – automatische prijsindicatie</p>
+  <p>Stel zelf samen – automatische prijsindicatie</p>
 </header>
 
 <nav>
@@ -164,44 +164,41 @@
 
     <h2>Custom PC aanvragen</h2>
 
-    <form action="mailto:computerbuilderzynx@gmail.com"
-          method="post"
-          enctype="text/plain"
-          onsubmit="return checkAgreement()">
+    <form onsubmit="return checkAgreement()">
 
       <label>Ordernummer</label>
-      <input type="text" id="order" name="Ordernummer" readonly>
+      <input type="text" id="order" readonly>
 
       <label>Naam</label>
-      <input type="text" name="Naam" required>
+      <input type="text" id="naam" required>
 
       <label>Email</label>
-      <input type="email" name="Email" required>
+      <input type="email" id="email" required>
 
       <label>Telefoon</label>
-      <input type="tel" name="Telefoon" required>
+      <input type="tel" id="telefoon" required>
 
       <h3>Onderdelen + prijs (€)</h3>
 
       <label>Processor (CPU)</label>
-      <input type="text" name="CPU">
-      <input type="number" placeholder="Prijs CPU" oninput="bereken()">
+      <input type="text">
+      <input type="number" oninput="bereken()" placeholder="Prijs CPU">
 
       <label>Grafische kaart (GPU)</label>
-      <input type="text" name="GPU">
-      <input type="number" placeholder="Prijs GPU" oninput="bereken()">
+      <input type="text">
+      <input type="number" oninput="bereken()" placeholder="Prijs GPU">
 
       <label>RAM</label>
-      <input type="text" name="RAM">
-      <input type="number" placeholder="Prijs RAM" oninput="bereken()">
+      <input type="text">
+      <input type="number" oninput="bereken()" placeholder="Prijs RAM">
 
       <label>Opslag</label>
-      <input type="text" name="Opslag">
-      <input type="number" placeholder="Prijs opslag" oninput="bereken()">
+      <input type="text">
+      <input type="number" oninput="bereken()" placeholder="Prijs opslag">
 
-      <label>Overige onderdelen (behuizing, PSU, koeling)</label>
-      <input type="text" name="Overig">
-      <input type="number" placeholder="Prijs overige" oninput="bereken()">
+      <label>Overige onderdelen</label>
+      <input type="text">
+      <input type="number" oninput="bereken()" placeholder="Prijs overige">
 
       <div class="price-box" id="totaal">
         Totaal (incl. service): € —
@@ -214,7 +211,9 @@
         </label>
       </div>
 
-      <button type="submit">Offerte aanvragen</button>
+      <button type="button" onclick="opslaanVoorFactuur()">
+        Gegevens opslaan voor factuur
+      </button>
 
       <button type="button" class="secondary" onclick="window.print()">
         Offerte downloaden (PDF)
@@ -247,7 +246,7 @@
       if (i.value) totaal += parseFloat(i.value);
     });
 
-    let service = totaal * 0.07; // 7% service/marge
+    let service = totaal * 0.07;
     let eind = totaal + service;
 
     document.getElementById("totaal").innerText =
@@ -260,6 +259,19 @@
       return false;
     }
     return true;
+  }
+
+  function opslaanVoorFactuur() {
+    const data = {
+      order: document.getElementById("order").value,
+      naam: document.getElementById("naam").value,
+      email: document.getElementById("email").value,
+      telefoon: document.getElementById("telefoon").value,
+      totaal: document.getElementById("totaal").innerText.replace(/\D/g,'')
+    };
+
+    localStorage.setItem("factuurData", JSON.stringify(data));
+    alert("Gegevens opgeslagen. Open nu factuur.html om de factuur te maken.");
   }
 </script>
 
