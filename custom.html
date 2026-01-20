@@ -2,176 +2,78 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<title>Custom PC Configurator | ZYNX</title>
+<title>Custom PC | PC Builds België</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <style>
-body{margin:0;font-family:Arial;background:#f4f7fb;color:#0f172a}
-header{background:linear-gradient(135deg,#020617,#0b3c5d);color:#fff;padding:60px 20px;text-align:center}
-nav{background:#020617;padding:14px;text-align:center}
-nav a{color:#fff;margin:0 15px;text-decoration:none;font-weight:bold}
-section{max-width:1000px;margin:auto;padding:40px 20px}
-.card{background:#fff;padding:40px;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,.12)}
-h2{color:#2563eb}
-label{display:block;font-weight:bold;margin-top:18px}
-select,input{width:100%;padding:12px;margin-top:8px;border-radius:6px;border:1px solid #ccc}
-.price{margin-top:25px;padding:20px;background:#eaf1ff;border-radius:10px;font-size:18px;font-weight:bold}
-.warn{margin-top:10px;color:#dc2626;font-weight:bold}
-button{margin-top:15px;width:100%;padding:14px;border:none;border-radius:8px;font-size:16px;font-weight:bold;cursor:pointer}
-.primary{background:#2563eb;color:#fff}
-.secondary{background:#020617;color:#fff}
-.presets button{width:32%;margin-right:1%}
-.whatsapp a{display:inline-flex;align-items:center;gap:10px;background:#25d366;color:white;padding:14px 22px;border-radius:50px;text-decoration:none;font-weight:bold}
-@media print{nav,button,.whatsapp{display:none}}
+body{margin:0;font-family:Arial;background:#f4f7fb}
+header,nav{background:#020617;color:white;text-align:center;padding:20px}
+nav a{color:white;margin:0 15px;text-decoration:none;font-weight:bold}
+section{max-width:900px;margin:auto;padding:40px}
+.card{background:white;padding:30px;border-radius:16px;box-shadow:0 10px 20px rgba(0,0,0,.15)}
+select{width:100%;padding:10px;margin-top:10px}
+.total{font-size:22px;font-weight:bold;margin-top:20px}
+.btn{background:#2563eb;color:white;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:20px}
+.whatsapp{background:#25D366}
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>Custom PC Configurator</h1>
-<p>Kies onderdelen of gebruik presets</p>
-</header>
-
+<header><h1>Custom PC</h1></header>
 <nav>
-  <a href="home.html">Home</a>
-  <a href="index.html">Shop</a>
-  <a href="custom.html">Custom PC</a>
-  <a href="voorwaarden.html">Voorwaarden</a>
+<a href="home.html">Home</a>
+<a href="index.html">Shop</a>
+<a href="custom.html">Custom PC</a>
 </nav>
 
 <section>
 <div class="card">
 
-<h2>Presets</h2>
-<div class="presets">
-<button class="secondary" onclick="presetBudget()">Budget</button>
-<button class="secondary" onclick="presetGaming()">Gaming</button>
-<button class="secondary" onclick="presetExtreme()">Extreme</button>
-</div>
-
-<h2>CPU</h2>
-<label>Processor</label>
-<select id="cpu" onchange="updateRam();bereken()">
-<option value="0" data-ram="">Kies CPU</option>
-
-<!-- Intel DDR4 -->
-<option value="220" data-ram="ddr4">Intel i5-12400F (DDR4)</option>
-<option value="320" data-ram="ddr4">Intel i7-12700F (DDR4)</option>
-
-<!-- Intel DDR5 -->
-<option value="420" data-ram="ddr5">Intel i7-14700K (DDR5)</option>
-<option value="650" data-ram="ddr5">Intel i9-14900K (DDR5)</option>
-
-<!-- AMD DDR4 -->
-<option value="200" data-ram="ddr4">Ryzen 5 5600</option>
-<option value="350" data-ram="ddr4">Ryzen 7 5800X</option>
-
-<!-- AMD DDR5 -->
-<option value="420" data-ram="ddr5">Ryzen 7 7700</option>
-<option value="620" data-ram="ddr5">Ryzen 7 7800X3D</option>
-<option value="880" data-ram="ddr5">Ryzen 9 7950X3D</option>
+<label>CPU</label>
+<select id="cpu">
+<option value="450">Ryzen 7 7800X3D (€450)</option>
+<option value="600">Ryzen 9 7950X (€600)</option>
+<option value="550">Intel i7 14700K (€550)</option>
+<option value="750">Intel i9 14900K (€750)</option>
 </select>
 
-<h2>GPU</h2>
-<label>Grafische kaart</label>
-<select id="gpu" onchange="bereken()">
-<option value="0">Kies GPU</option>
-
-<!-- NVIDIA -->
-<option value="300">RTX 4060</option>
-<option value="420">RTX 4060 Ti</option>
-<option value="650">RTX 4070 Super</option>
-<option value="950">RTX 4080 Super</option>
-<option value="1600">RTX 5080</option>
-<option value="2300">RTX 5090</option>
-
-<!-- AMD -->
-<option value="480">RX 7700 XT</option>
-<option value="650">RX 7800 XT</option>
-<option value="950">RX 7900 XTX</option>
-<option value="1150">RX 8950 XTX</option>
+<label>GPU</label>
+<select id="gpu">
+<option value="900">RTX 5070 (€900)</option>
+<option value="1300">RTX 5080 (€1300)</option>
+<option value="1800">RTX 5090 (€1800)</option>
+<option value="1200">AMD RX 8900 XTX (€1200)</option>
 </select>
 
-<h2>RAM</h2>
-<label>Werkgeheugen</label>
-<select id="ram" onchange="bereken()">
-<option value="0" data-type="">Kies RAM</option>
-
-<option value="70" data-type="ddr4">16GB DDR4</option>
-<option value="140" data-type="ddr4">32GB DDR4</option>
-<option value="260" data-type="ddr4">64GB DDR4</option>
-
-<option value="160" data-type="ddr5">32GB DDR5</option>
-<option value="320" data-type="ddr5">64GB DDR5</option>
+<label>RAM</label>
+<select id="ram">
+<option value="120">32GB DDR4 (€120)</option>
+<option value="220">32GB DDR5 (€220)</option>
+<option value="380">64GB DDR5 (€380)</option>
 </select>
 
-<h2>Opslag</h2>
-<select id="storage" onchange="bereken()">
-<option value="0">Kies opslag</option>
-<option value="120">1TB NVMe</option>
-<option value="220">2TB NVMe</option>
-<option value="420">4TB NVMe</option>
+<label>Opslag</label>
+<select id="ssd">
+<option value="100">1TB NVMe (€100)</option>
+<option value="180">2TB NVMe (€180)</option>
 </select>
 
-<div class="price" id="totaal">Totaalprijs: € —</div>
-<div class="warn" id="compat"></div>
+<p class="total">Totaal: €<span id="total">0</span></p>
 
-<button class="primary" onclick="opslaan()">Offerte opslaan</button>
-
-<div class="whatsapp" style="margin-top:15px;text-align:center">
-<a href="https://wa.me/32494938460?text=Hallo,%20ik%20wil%20een%20custom%20PC%20bestellen." target="_blank">
-📱 WhatsApp
-</a>
-</div>
+<a href="bestel.html" class="btn">Bestellen</a>
+<a href="https://wa.me/32494938460" class="btn whatsapp">WhatsApp</a>
 
 </div>
 </section>
 
 <script>
-function updateRam(){
-  const cpu = document.getElementById("cpu");
-  const ramType = cpu.options[cpu.selectedIndex].dataset.ram;
-  const ram = document.getElementById("ram");
-
-  for(let opt of ram.options){
-    opt.disabled = opt.dataset.type && opt.dataset.type !== ramType;
-  }
+function calc(){
+let total =
++cpu.value + +gpu.value + +ram.value + +ssd.value;
+document.getElementById("total").innerText = total;
 }
-
-function bereken(){
-  const cpu = +document.getElementById("cpu").value;
-  const gpu = +document.getElementById("gpu").value;
-  const ram = +document.getElementById("ram").value;
-  const storage = +document.getElementById("storage").value;
-
-  let totaal = cpu + gpu + ram + storage;
-  let service = totaal * 0.07;
-  let eind = totaal + service;
-
-  document.getElementById("totaal").innerText =
-    "Totaalprijs (incl. service): € " + Math.round(eind);
-}
-
-function presetBudget(){
-  cpu.value=220;gpu.value=300;ram.value=140;storage.value=120;
-  updateRam();bereken();
-}
-function presetGaming(){
-  cpu.value=620;gpu.value=950;ram.value=160;storage.value=220;
-  updateRam();bereken();
-}
-function presetExtreme(){
-  cpu.value=880;gpu.value=2300;ram.value=320;storage.value=420;
-  updateRam();bereken();
-}
-
-function opslaan(){
-  localStorage.setItem("factuurData",JSON.stringify({
-    totaal:document.getElementById("totaal").innerText.replace(/\D/g,'')
-  }));
-  alert("Offerte opgeslagen.");
-}
+document.querySelectorAll("select").forEach(e=>e.onchange=calc);
+calc();
 </script>
 
 </body>
