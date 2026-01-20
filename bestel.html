@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <title>Bestellen | ZYNX</title>
+  <title>Bestelling plaatsen | ZYNX</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
@@ -11,6 +11,7 @@
       --card: #ffffff;
       --text: #0f172a;
       --accent: #2563eb;
+      --dark: #020617;
     }
 
     body {
@@ -27,13 +28,8 @@
       text-align: center;
     }
 
-    header img {
-      max-width: 220px;
-      margin-bottom: 15px;
-    }
-
     nav {
-      background: #020617;
+      background: var(--dark);
       padding: 14px;
       text-align: center;
     }
@@ -54,43 +50,50 @@
     .card {
       background: var(--card);
       padding: 35px;
-      border-radius: 14px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    h2 {
+      color: var(--accent);
+      margin-top: 0;
     }
 
     label {
-      display: block;
-      margin-top: 15px;
       font-weight: bold;
+      display: block;
+      margin-top: 18px;
     }
 
-    input, select, textarea {
+    input, select {
       width: 100%;
       padding: 12px;
-      margin-top: 6px;
+      margin-top: 8px;
       border-radius: 6px;
-      border: 1px solid #cbd5e1;
+      border: 1px solid #ccc;
     }
 
-    .btn {
+    button {
       margin-top: 25px;
+      width: 100%;
+      padding: 15px;
       background: var(--accent);
       color: white;
-      padding: 14px;
       border: none;
       border-radius: 8px;
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
-      width: 100%;
     }
 
-    footer {
-      background: #020617;
-      color: #9ca3af;
-      text-align: center;
-      padding: 25px;
+    button:hover {
+      background: #1e40af;
+    }
+
+    .note {
       font-size: 14px;
+      color: #475569;
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -98,37 +101,26 @@
 <body>
 
 <header>
-  <img src="logo.png" alt="ZYNX Logo">
-  <h1>Bestel jouw PC</h1>
-  <p>Voorafbetaling • 1 jaar garantie</p>
+  <h1>Bestelling plaatsen</h1>
+  <p>Op maat gebouwd – voorafbetaling vereist</p>
 </header>
 
 <nav>
   <a href="index.html">Shop</a>
-  <a href="faq.html">FAQ</a>
+  <a href="custom.html">Custom PC</a>
   <a href="voorwaarden.html">Voorwaarden</a>
 </nav>
 
 <section>
   <div class="card">
 
-    <form
-      action="mailto:computerbuilderzynx@gmail.com"
-      method="post"
-      enctype="text/plain"
-      onsubmit="setTimeout(function(){ window.location.href='bedankt.html'; }, 500);"
-    >
+    <h2>Bestelgegevens</h2>
 
-      <input type="hidden" id="ordernummer" name="Ordernummer">
+    <form action="mailto:computerbuilderzynx@gmail.com" method="post" enctype="text/plain">
 
-      <label>PC type</label>
-      <select id="pcSelect" name="PC type" required>
-        <option value="">-- Kies --</option>
-        <option value="Office PC (vanaf €649)">Office PC (vanaf €649)</option>
-        <option value="Gaming PC (vanaf €1.399)">Gaming PC (vanaf €1.399)</option>
-        <option value="AI / Workstation (vanaf €2.999)">AI / Workstation (vanaf €2.999)</option>
-        <option value="Custom PC">Custom PC</option>
-      </select>
+      <!-- automatisch ordernummer -->
+      <label>Ordernummer</label>
+      <input type="text" name="Ordernummer" id="order" readonly>
 
       <label>Naam</label>
       <input type="text" name="Naam" required>
@@ -139,33 +131,37 @@
       <label>Telefoon</label>
       <input type="tel" name="Telefoon" required>
 
-      <label>Extra wensen/ opmerkingen (specifieke kleur/merk/...)</label>
-      <textarea name="Opmerkingen" rows="4"></textarea>
+      <label>Type PC</label>
+      <select name="PC Type" required>
+        <option value="">-- Kies een optie --</option>
+        <option>Office PC – €549</option>
+        <option>Gaming PC – €999</option>
+        <option>Workstation – €1.599</option>
+      </select>
 
-      <label>Accesoires (toetsenbord/monitor/muis...)</label>
-      <textarea name="Accesoires" rows="4"></textarea>
+      <label>Levering</label>
+      <select name="Levering" required>
+        <option>Afhaling</option>
+        <option>Levering aan huis</option>
+      </select>
 
-      <button class="btn" type="submit">Bestelling verzenden</button>
+      <button type="submit">Bestelling verzenden</button>
+
+      <p class="note">
+        Door deze bestelling te verzenden verklaart de klant akkoord te gaan
+        met de <a href="voorwaarden.html">algemene voorwaarden</a>.
+        De bouw start pas na ontvangst van volledige betaling.
+      </p>
+
     </form>
 
   </div>
 </section>
 
-<footer>
-  © 2026 ZYNX – Custom PC’s België
-</footer>
-
 <script>
-  const order = "ZYNX-" + new Date().getFullYear() + "-" + Math.floor(100000 + Math.random() * 900000);
-  document.getElementById("ordernummer").value = order;
-
-  const params = new URLSearchParams(window.location.search);
-  const pc = params.get("pc");
-  const select = document.getElementById("pcSelect");
-
-  if (pc === "office") select.value = "Office PC (vanaf €649)";
-  if (pc === "gaming") select.value = "Gaming PC (vanaf €1.399)";
-  if (pc === "ai") select.value = "AI / Workstation (vanaf €2.999)";
+  // ordernummer genereren
+  document.getElementById("order").value =
+    "ZYNX-" + Math.floor(100000 + Math.random() * 900000);
 </script>
 
 </body>
