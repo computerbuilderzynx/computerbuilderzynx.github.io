@@ -10,13 +10,22 @@ body{margin:0;font-family:Arial;background:#f4f7fb}
 header{background:linear-gradient(135deg,#020617,#0b3c5d);color:white;padding:50px;text-align:center}
 nav{background:#020617;padding:15px;text-align:center}
 nav a{color:white;margin:0 15px;text-decoration:none;font-weight:bold}
+
 section{max-width:1200px;margin:auto;padding:40px}
 .card{background:white;padding:40px;border-radius:18px;box-shadow:0 12px 30px rgba(0,0,0,.15)}
+
+.presets{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-bottom:40px}
+.preset{border:2px solid #e5e7eb;border-radius:16px;padding:25px;cursor:pointer;transition:.2s}
+.preset:hover{border-color:#2563eb;transform:scale(1.02)}
+.preset.active{border-color:#2563eb;background:#eef2ff}
+
 label{display:block;margin-top:20px;font-weight:bold}
 select{width:100%;padding:12px;margin-top:6px;border-radius:8px}
+
 .total{font-size:32px;font-weight:bold;margin-top:30px}
-.btn{background:#2563eb;color:white;padding:14px 24px;border-radius:8px;text-decoration:none;font-weight:bold;margin-top:20px;display:inline-block}
+.btn{background:#2563eb;color:white;padding:14px 24px;border-radius:8px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:20px}
 .whatsapp{background:#25D366;margin-left:10px}
+
 .note{font-size:14px;color:#555;margin-top:15px}
 </style>
 </head>
@@ -25,125 +34,159 @@ select{width:100%;padding:12px;margin-top:6px;border-radius:8px}
 
 <header>
 <h1>Custom PC configurator</h1>
-<p>Maximale keuze • Realistische prijzen • Compatibel</p>
+<p>Kies een preset of stel alles zelf samen</p>
 </header>
 
 <nav>
 <a href="home.html">Home</a>
 <a href="index.html">Shop</a>
-<a href="custom.html">Custom</a>
+<a href="custom.html">Custom PC</a>
 <a href="voorwaarden.html">Voorwaarden</a>
 </nav>
 
 <section>
 <div class="card">
 
-<label>Preset</label>
-<select id="preset">
-<option value="0">Geen preset</option>
-<option value="0">Beste performance</option>
-<option value="0">Gaming</option>
-<option value="0">Maakt niet uit</option>
-</select>
+<h2>🔥 Presets</h2>
+<div class="presets">
+
+<div class="preset" onclick="applyPreset('gaming', this)">
+<h3>🎮 Gaming</h3>
+<p>Beste FPS, ideaal voor 1440p / 4K gaming.</p>
+</div>
+
+<div class="preset" onclick="applyPreset('performance', this)">
+<h3>🚀 Beste performance</h3>
+<p>Maximale kracht, geen compromissen.</p>
+</div>
+
+<div class="preset" onclick="applyPreset('balanced', this)">
+<h3>⚖️ Maakt niet uit</h3>
+<p>Beste prijs / kwaliteit.</p>
+</div>
+
+</div>
 
 <label>CPU</label>
 <select id="cpu">
-<option data-ram="ddr4" value="160">Ryzen 5 5600 (€160)</option>
-<option data-ram="ddr4" value="260">Ryzen 7 5800X (€260)</option>
-<option data-ram="ddr5" value="650">Ryzen 7 7800X3D (€650)</option>
-<option data-ram="ddr5" value="820">Ryzen 9 7950X (€820)</option>
+<option data-ram="ddr4">Ryzen 5 5600</option>
+<option data-ram="ddr4">Ryzen 7 5800X</option>
+<option data-ram="ddr5">Ryzen 7 7800X3D</option>
+<option data-ram="ddr5">Ryzen 9 7950X</option>
 
-<option data-ram="ddr4" value="180">Intel i5-12400F (€180)</option>
-<option data-ram="ddr4" value="420">Intel i7-12700KF (€420)</option>
-<option data-ram="ddr5" value="580">Intel i7-14700K (€580)</option>
-<option data-ram="ddr5" value="820">Intel i9-14900K (€820)</option>
+<option data-ram="ddr4">Intel i5-12400F</option>
+<option data-ram="ddr4">Intel i7-12700KF</option>
+<option data-ram="ddr5">Intel i7-14700K</option>
+<option data-ram="ddr5">Intel i9-14900K</option>
 </select>
 
 <label>GPU</label>
 <select id="gpu">
-<option value="320">RTX 4060 (€320)</option>
-<option value="520">RTX 4070 (€520)</option>
-<option value="850">RTX 4080 (€850)</option>
-<option value="950">RTX 5070 (€950)</option>
-<option value="1250">RTX 5080 (€1250)</option>
-<option value="1850">RTX 5090 (€1850)</option>
-
-<option value="520">RX 7800 XT (€520)</option>
-<option value="1100">RX 7900 XTX (€1100)</option>
-<option value="1450">RX 8900 XTX (€1450)</option>
+<option>RTX 4060</option>
+<option>RTX 4070</option>
+<option>RTX 4080</option>
+<option>RTX 5070</option>
+<option>RTX 5080</option>
+<option>RTX 5090</option>
+<option>RX 7800 XT</option>
+<option>RX 7900 XTX</option>
+<option>RX 8900 XTX</option>
 </select>
 
 <label>RAM</label>
 <select id="ram">
-<option data-type="ddr4" value="90">16GB DDR4 (€90)</option>
-<option data-type="ddr4" value="180">32GB DDR4 (€180)</option>
-<option data-type="ddr4" value="360">64GB DDR4 (€360)</option>
-
-<option data-type="ddr5" value="360">32GB DDR5 (€360)</option>
-<option data-type="ddr5" value="620">64GB DDR5 (€620)</option>
+<option data-type="ddr4">16GB DDR4</option>
+<option data-type="ddr4">32GB DDR4</option>
+<option data-type="ddr4">64GB DDR4</option>
+<option data-type="ddr5">32GB DDR5</option>
+<option data-type="ddr5">64GB DDR5</option>
 </select>
 
 <label>Opslag</label>
 <select id="ssd">
-<option value="90">1TB NVMe (€90)</option>
-<option value="170">2TB NVMe (€170)</option>
-<option value="320">4TB NVMe (€320)</option>
-<option value="600">8TB NVMe (€600)</option>
+<option>1TB NVMe</option>
+<option>2TB NVMe</option>
+<option>4TB NVMe</option>
+<option>8TB NVMe</option>
 </select>
 
 <label>Extra opties</label>
 <select id="extra">
-<option value="0">Geen</option>
-<option value="100">Windows 11 Home (€100)</option>
-<option value="140">Windows 11 Pro (€140)</option>
-<option value="60">Wi-Fi & Bluetooth (€60)</option>
-<option value="90">RGB fans (€90)</option>
-<option value="150">Premium koeling (€150)</option>
+<option>Geen</option>
+<option>Windows 11 Home</option>
+<option>Windows 11 Pro</option>
+<option>Wi-Fi & Bluetooth</option>
+<option>RGB fans</option>
+<option>Premium koeling</option>
 </select>
 
 <label>Keyboard</label>
 <select id="keyboard">
-<option value="0">Geen</option>
-<option value="80">Gaming keyboard (€80)</option>
-<option value="150">High-end keyboard (€150)</option>
+<option>Geen</option>
+<option>Gaming keyboard</option>
+<option>High-end keyboard</option>
 </select>
 
 <label>Muis</label>
 <select id="mouse">
-<option value="0">Geen</option>
-<option value="60">Gaming muis (€60)</option>
-<option value="120">High-end muis (€120)</option>
+<option>Geen</option>
+<option>Gaming muis</option>
+<option>High-end muis</option>
 </select>
 
-<div class="total">Totaal: €<span id="total">0</span></div>
+<div class="total">Totaal: €<span id="total">—</span></div>
 
-<p class="note">✔ Assemblage & test inbegrepen • ✔ 1 jaar garantie • ✔ Betaling vooraf</p>
+<p class="note">
+✔ Assemblage & stresstest inbegrepen<br>
+✔ Compatibele onderdelen<br>
+✔ 1 jaar garantie • betaling vooraf
+</p>
 
-<a id="orderBtn" class="btn">Bestellen</a>
-<a href="https://wa.me/32494938460" class="btn whatsapp">WhatsApp</a>
+<a class="btn" href="bestel.html">Bestellen</a>
+<a class="btn whatsapp" href="https://wa.me/32494938460">WhatsApp</a>
 
 </div>
 </section>
 
 <script>
-const selects=document.querySelectorAll("select");
-const cpu=document.getElementById("cpu");
-const ram=document.getElementById("ram");
-const totalEl=document.getElementById("total");
+const cpu = document.getElementById("cpu");
+const ram = document.getElementById("ram");
+const presets = document.querySelectorAll(".preset");
 
-function calc(){
- let t=0;
- selects.forEach(s=>t+=Number(s.value));
- totalEl.innerText=t;
+function applyPreset(type, el){
+  presets.forEach(p => p.classList.remove("active"));
+  el.classList.add("active");
+
+  if(type==="gaming"){
+    cpu.selectedIndex = 2;   // 7800X3D
+    gpu.selectedIndex = 3;   // RTX 5070
+    ram.selectedIndex = 3;   // 32GB DDR5
+    ssd.selectedIndex = 1;   // 2TB
+  }
+
+  if(type==="performance"){
+    cpu.selectedIndex = 7;   // i9-14900K
+    gpu.selectedIndex = 5;   // RTX 5090
+    ram.selectedIndex = 4;   // 64GB DDR5
+    ssd.selectedIndex = 2;   // 4TB
+  }
+
+  if(type==="balanced"){
+    cpu.selectedIndex = 5;   // i7-12700KF
+    gpu.selectedIndex = 1;   // RTX 4070
+    ram.selectedIndex = 1;   // 32GB DDR4
+    ssd.selectedIndex = 1;   // 2TB
+  }
+
+  compat();
 }
 
 function compat(){
- const need=cpu.options[cpu.selectedIndex].dataset.ram;
- [...ram.options].forEach(o=>o.disabled=o.dataset.type!==need);
+  const need = cpu.options[cpu.selectedIndex].dataset.ram;
+  [...ram.options].forEach(o => o.disabled = o.dataset.type !== need);
 }
 
-selects.forEach(s=>s.onchange=()=>{compat();calc();});
-compat();calc();
+compat();
 </script>
 
 </body>
