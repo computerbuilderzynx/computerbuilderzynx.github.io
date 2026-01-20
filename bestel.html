@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <title>Bestelling plaatsen | ZYNX</title>
+  <title>PC bestellen | ZYNX</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
@@ -42,7 +42,7 @@
     }
 
     section {
-      max-width: 700px;
+      max-width: 800px;
       margin: auto;
       padding: 50px 20px;
     }
@@ -54,18 +54,13 @@
       box-shadow: 0 10px 25px rgba(0,0,0,0.12);
     }
 
-    h2 {
-      color: var(--accent);
-      margin-top: 0;
-    }
-
     label {
       font-weight: bold;
-      display: block;
       margin-top: 18px;
+      display: block;
     }
 
-    input, select {
+    select, input {
       width: 100%;
       padding: 12px;
       margin-top: 8px;
@@ -74,9 +69,9 @@
     }
 
     button {
-      margin-top: 25px;
+      margin-top: 30px;
       width: 100%;
-      padding: 15px;
+      padding: 16px;
       background: var(--accent);
       color: white;
       border: none;
@@ -89,20 +84,14 @@
     button:hover {
       background: #1e40af;
     }
-
-    .note {
-      font-size: 14px;
-      color: #475569;
-      margin-top: 20px;
-    }
   </style>
 </head>
 
 <body>
 
 <header>
-  <h1>Bestelling plaatsen</h1>
-  <p>Op maat gebouwd – voorafbetaling vereist</p>
+  <h1>PC samenstellen & bestellen</h1>
+  <p>Kies je onderdelen – voorafbetaling vereist</p>
 </header>
 
 <nav>
@@ -114,11 +103,8 @@
 <section>
   <div class="card">
 
-    <h2>Bestelgegevens</h2>
-
     <form action="mailto:computerbuilderzynx@gmail.com" method="post" enctype="text/plain">
 
-      <!-- automatisch ordernummer -->
       <label>Ordernummer</label>
       <input type="text" name="Ordernummer" id="order" readonly>
 
@@ -132,26 +118,32 @@
       <input type="tel" name="Telefoon" required>
 
       <label>Type PC</label>
-      <select name="PC Type" required>
-        <option value="">-- Kies een optie --</option>
-        <option>Office PC – €549</option>
-        <option>Gaming PC – €999</option>
-        <option>Workstation – €1.599</option>
+      <select id="pcType" name="PC Type" onchange="updateOptions()" required>
+        <option value="">-- Kies een PC --</option>
+        <option value="office">Office PC</option>
+        <option value="gaming">Gaming PC</option>
+        <option value="workstation">Workstation PC</option>
       </select>
 
-      <label>Levering</label>
-      <select name="Levering" required>
-        <option>Afhaling</option>
-        <option>Levering aan huis</option>
+      <label>Voorkeur</label>
+      <select name="Voorkeur">
+        <option>Beste performance</option>
+        <option>Maakt niet uit (beste prijs/kwaliteit)</option>
       </select>
+
+      <label>Processor</label>
+      <select id="cpu" name="CPU" required></select>
+
+      <label>Grafische kaart (GPU)</label>
+      <select id="gpu" name="GPU" required></select>
+
+      <label>RAM</label>
+      <select id="ram" name="RAM" required></select>
+
+      <label>Opslag</label>
+      <select id="storage" name="Opslag" required></select>
 
       <button type="submit">Bestelling verzenden</button>
-
-      <p class="note">
-        Door deze bestelling te verzenden verklaart de klant akkoord te gaan
-        met de <a href="voorwaarden.html">algemene voorwaarden</a>.
-        De bouw start pas na ontvangst van volledige betaling.
-      </p>
 
     </form>
 
@@ -159,9 +151,94 @@
 </section>
 
 <script>
-  // ordernummer genereren
   document.getElementById("order").value =
     "ZYNX-" + Math.floor(100000 + Math.random() * 900000);
+
+  function updateOptions() {
+    const type = document.getElementById("pcType").value;
+
+    const cpu = document.getElementById("cpu");
+    const gpu = document.getElementById("gpu");
+    const ram = document.getElementById("ram");
+    const storage = document.getElementById("storage");
+
+    cpu.innerHTML = "";
+    gpu.innerHTML = "";
+    ram.innerHTML = "";
+    storage.innerHTML = "";
+
+    if (type === "office") {
+      cpu.innerHTML += "<option>Intel i5</option>";
+      cpu.innerHTML += "<option>Ryzen 5</option>";
+      
+      gpu.innerHTML += "<option>Integrated graphics</option>";
+      
+      ram.innerHTML += "<option>16GB DDR4</option>";
+      ram.innerHTML += "<option>32GB DDR4</option>";
+      
+      storage.innerHTML += "<option>512GB NVMe SSD</option>";
+      storage.innerHTML += "<option>1TB NVMe SSD</option>";
+      storage.innerHTML += "<option>2TB NVMe SSD</option>";
+    }
+
+    if (type === "gaming") {
+      cpu.innerHTML += "<option>Ryzen 5 5600X</option>";
+      cpu.innerHTML += "<option>Ryzen 7 5800X</option>";
+      cpu.innerHTML += "<option>Ryzen 9 7900X/option>";
+      cpu.innerHTML += "<option>Ryzen 5 9600X</option>";
+      cpu.innerHTML += "<option>Ryzen 9 9900X</option>";
+      cpu.innerHTML += "<option>Ryzen 7 9700X</option>";
+      cpu.innerHTML += "<option>Ryzen 9 9950X</option>";
+      cpu.innerHTML += "<option>Ryzen 7 7800X3D</option>";
+      cpu.innerHTML += "<option>Ryzen 7 9800X3D</option>";
+
+      gpu.innerHTML += "<option>RTX 3060</option>";
+      gpu.innerHTML += "<option>RTX 4060</option>";
+      gpu.innerHTML += "<option>RTX 4070</option>";
+      gpu.innerHTML += "<option>RTX 4070Ti</option>";
+      gpu.innerHTML += "<option>RTX 4070Ti Super</option>";
+      gpu.innerHTML += "<option>RTX 4080</option>";
+      gpu.innerHTML += "<option>RTX 4080 Super</option>";
+      gpu.innerHTML += "<option>RTX 4090</option>";
+      gpu.innerHTML += "<option>RTX 5060</option>";
+      gpu.innerHTML += "<option>RTX 5060Ti</option>";
+      gpu.innerHTML += "<option>RTX 5070</option>";
+      gpu.innerHTML += "<option>RTX 5070Ti</option>";
+      gpu.innerHTML += "<option>RTX 5080</option>";
+      gpu.innerHTML += "<option>RTX 5090</option>";
+      
+      ram.innerHTML += "<option>16GB DDR4</option>";
+      ram.innerHTML += "<option>32GB DDR4</option>";
+      ram.innerHTML += "<option>16GB DDR5</option>";
+      ram.innerHTML += "<option>32GB DDR5</option>";
+      ram.innerHTML += "<option>64GB DDR5</option>";
+
+      storage.innerHTML += "<option>1TB NVMe SSD</option>";
+      storage.innerHTML += "<option>2TB NVMe SSD</option>";
+      storage.innerHTML += "<option>4TB NVMe SSD</option>";
+    }
+
+    if (type === "workstation") {
+      cpu.innerHTML += "<option>Ryzen 9 5900X</option>";
+      cpu.innerHTML += "<option>Ryzen 9 7950X</option>";
+      cpu.innerHTML += "<option>Ryzen 9 9950X3D</option>";
+      cpu.innerHTML += "<option>Ryzen 7 9700X</option>";
+
+      gpu.innerHTML += "<option>RTX 4070</option>";
+      gpu.innerHTML += "<option>RTX 4080</option>";
+      gpu.innerHTML += "<option>RTX 5070Ti</option>";
+      gpu.innerHTML += "<option>RTX 5080</option>";
+
+      ram.innerHTML += "<option>32GB DDR4</option>";
+      ram.innerHTML += "<option>64GB DDR4</option>";
+      ram.innerHTML += "<option>32GB DDR5</option>";
+      ram.innerHTML += "<option>64GB DDR5</option>";
+      ram.innerHTML += "<option>128GB DDR5</option>";
+     
+      storage.innerHTML += "<option>2TB NVMe SSD</option>";
+      storage.innerHTML += "<option>4TB NVMe SSD</option>";
+    }
+  }
 </script>
 
 </body>
