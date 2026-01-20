@@ -1,177 +1,66 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <title>ZYNX PC Builds – Custom PC’s België</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <style>
-    :root {
-      --bg: #f4f7fb;
-      --card: #ffffff;
-      --text: #0f172a;
-      --accent: #2563eb;
-      --dark: #020617;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-    }
-
-    header {
-      background: linear-gradient(135deg, #020617, #0b3c5d);
-      color: white;
-      padding: 70px 20px;
-      text-align: center;
-    }
-
-    header img {
-      max-width: 220px;
-      margin-bottom: 20px;
-    }
-
-    nav {
-      background: var(--dark);
-      padding: 14px;
-      text-align: center;
-    }
-
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 60px 20px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-    }
-
-    .card {
-      background: var(--card);
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    h2 {
-      color: var(--accent);
-    }
-
-    ul {
-      padding-left: 18px;
-    }
-
-    .btn {
-      display: block;
-      background: var(--accent);
-      color: white;
-      padding: 14px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      text-align: center;
-      margin-top: 12px;
-    }
-
-    .btn:hover {
-      background: #1e40af;
-    }
-
-    footer {
-      background: var(--dark);
-      color: #9ca3af;
-      text-align: center;
-      padding: 25px;
-      font-size: 14px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Shop | PC Builds België</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<style>
+body{margin:0;font-family:Arial;background:#f4f7fb}
+header{background:#020617;color:white;padding:60px;text-align:center}
+nav{background:#020617;padding:15px;text-align:center}
+nav a{color:white;margin:0 15px;text-decoration:none;font-weight:bold}
+section{max-width:1100px;margin:auto;padding:40px}
+.card{background:white;padding:30px;border-radius:16px;box-shadow:0 10px 20px rgba(0,0,0,.15);margin-bottom:30px}
+.btn{background:#2563eb;color:white;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:bold;display:inline-block}
+.price{font-size:22px;font-weight:bold;margin-top:10px}
+</style>
 </head>
 
 <body>
 
 <header>
-  <img src="logo.png" alt="ZYNX Logo">
-  <h1>Custom PC Builds België</h1>
-  <p>Gaming • Office • Workstation – Op maat gebouwd</p>
+<h1>PC Builds België</h1>
+<p>Gaming • Office • Workstation PC’s</p>
 </header>
 
 <nav>
-  <a href="home.html">Home</a>
-  <a href="index.html">Shop</a>
-  <a href="custom.html">Custom PC</a>
-  <a href="voorwaarden.html">Voorwaarden</a>
+<a href="home.html">Home</a>
+<a href="index.html">Shop</a>
+<a href="custom.html">Custom PC</a>
+<a href="voorwaarden.html">Voorwaarden</a>
 </nav>
 
 <section>
-  <div class="grid">
 
-    <!-- OFFICE -->
-    <div class="card">
-      <div>
-        <h2>🖥️ Office PC – €549</h2>
-        <ul>
-          <li>Intel Core i5 (12e gen)</li>
-          <li>16GB DDR4 RAM</li>
-          <li>1TB NVMe SSD</li>
-          <li>Stille behuizing + PSU</li>
-          <li>Windows 11 (geïnstalleerd)</li>
-        </ul>
-      </div>
-      <a href="bestel.html?pc=office" class="btn">Bestel deze PC</a>
-    </div>
+<div class="card">
+<h2>🎮 Gaming PC – Performance</h2>
+<p>Ryzen 7 / RTX 5070 / 32GB RAM / 1TB NVMe</p>
+<p class="price">€2199</p>
+<a href="bestel.html" class="btn">Bestel deze PC</a>
+</div>
 
-    <!-- GAMING -->
-    <div class="card">
-      <div>
-        <h2>🎮 Gaming PC – €999</h2>
-        <ul>
-          <li>AMD Ryzen 5 5600</li>
-          <li>RTX 3060 12GB</li>
-          <li>16GB DDR4 RAM</li>
-          <li>1TB NVMe SSD</li>
-          <li>RGB airflow case</li>
-        </ul>
-      </div>
-      <a href="bestel.html?pc=gaming" class="btn">Bestel deze PC</a>
-      <a href="custom.html" class="btn">🛠️ Custom Gaming PC</a>
-    </div>
+<div class="card">
+<h2>🖥️ Office PC</h2>
+<p>Intel i5 / 16GB RAM / 512GB SSD</p>
+<p class="price">€799</p>
+<a href="bestel.html" class="btn">Bestel deze PC</a>
+</div>
 
-    <!-- WORKSTATION -->
-    <div class="card">
-      <div>
-        <h2>🤖 Workstation – €1.599</h2>
-        <ul>
-          <li>Ryzen 9 5900X</li>
-          <li>RTX 4070</li>
-          <li>32GB DDR4 RAM</li>
-          <li>2TB NVMe SSD</li>
-          <li>High airflow case</li>
-        </ul>
-      </div>
-      <a href="bestel.html?pc=workstation" class="btn">Bestel deze PC</a>
-    </div>
+<div class="card">
+<h2>🤖 AI / Workstation PC</h2>
+<p>Ryzen 9 / RTX 5090 / 64GB DDR5 / 2TB NVMe</p>
+<p class="price">€3999</p>
+<a href="bestel.html" class="btn">Bestel deze PC</a>
+</div>
 
-  </div>
+<div class="card">
+<h2>⭐ Custom Gaming PC</h2>
+<p>Stel zelf je PC samen</p>
+<a href="custom.html" class="btn">Configureer</a>
+</div>
+
 </section>
-
-<footer>
-  © 2026 ZYNX PC Builds – België
-</footer>
 
 </body>
 </html>
