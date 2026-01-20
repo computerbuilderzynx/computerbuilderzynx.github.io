@@ -2,26 +2,34 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <title>Custom PC samenstellen | ZYNX</title>
+  <title>Custom PC | ZYNX</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
+    :root {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --accent: #2563eb;
+      --dark: #020617;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f4f7fb;
-      color: #0f172a;
+      background: var(--bg);
+      color: var(--text);
     }
 
     header {
       background: linear-gradient(135deg, #020617, #0b3c5d);
       color: white;
-      padding: 70px 20px;
+      padding: 60px 20px;
       text-align: center;
     }
 
     nav {
-      background: #020617;
+      background: var(--dark);
       padding: 14px;
       text-align: center;
     }
@@ -34,22 +42,27 @@
     }
 
     section {
-      max-width: 700px;
+      max-width: 800px;
       margin: auto;
       padding: 50px 20px;
     }
 
     .card {
-      background: white;
+      background: var(--card);
       padding: 35px;
-      border-radius: 14px;
+      border-radius: 16px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    h2 {
+      color: var(--accent);
+      margin-top: 0;
     }
 
     label {
       font-weight: bold;
       display: block;
-      margin-top: 20px;
+      margin-top: 18px;
     }
 
     input, textarea {
@@ -60,11 +73,15 @@
       border: 1px solid #ccc;
     }
 
+    textarea {
+      resize: vertical;
+    }
+
     button {
-      margin-top: 25px;
+      margin-top: 30px;
       width: 100%;
-      padding: 15px;
-      background: #2563eb;
+      padding: 16px;
+      background: var(--accent);
       color: white;
       border: none;
       border-radius: 8px;
@@ -76,14 +93,20 @@
     button:hover {
       background: #1e40af;
     }
+
+    .note {
+      font-size: 14px;
+      color: #475569;
+      margin-top: 15px;
+    }
   </style>
 </head>
 
 <body>
 
 <header>
-  <h1>Custom PC samenstellen</h1>
-  <p>Volledig op maat – eerlijke offerte</p>
+  <h1>Custom PC aanvragen</h1>
+  <p>Geef je gewenste onderdelen door – wij doen de rest</p>
 </header>
 
 <nav>
@@ -94,7 +117,13 @@
 
 <section>
   <div class="card">
+
+    <h2>Custom PC configuratie</h2>
+
     <form action="mailto:computerbuilderzynx@gmail.com" method="post" enctype="text/plain">
+
+      <label>Ordernummer</label>
+      <input type="text" name="Ordernummer" id="order" readonly>
 
       <label>Naam</label>
       <input type="text" name="Naam" required>
@@ -102,19 +131,53 @@
       <label>Email</label>
       <input type="email" name="Email" required>
 
-      <label>Budget (€)</label>
-      <input type="number" name="Budget" required>
+      <label>Telefoon</label>
+      <input type="tel" name="Telefoon" required>
 
-      <label>Gebruik (games, werk, software)</label>
-      <textarea name="Gebruik" rows="4" required></textarea>
+      <label>Gebruik van de PC</label>
+      <input type="text" name="Gebruik"
+        placeholder="Gaming, school, werk, AI, editing, …" required>
 
-      <label>Extra wensen (RGB, stil, wit, etc.)</label>
-      <textarea name="Extra"></textarea>
+      <label>Processor (CPU)</label>
+      <input type="text" name="CPU"
+        placeholder="bv. Ryzen 7 5800X, Intel i7-12700K">
 
-      <button type="submit">Vraag offerte aan</button>
+      <label>Grafische kaart (GPU)</label>
+      <input type="text" name="GPU"
+        placeholder="bv. RTX 4070, RX 7800 XT">
+
+      <label>Werkgeheugen (RAM)</label>
+      <input type="text" name="RAM"
+        placeholder="bv. 32GB DDR4 3200MHz">
+
+      <label>Opslag</label>
+      <input type="text" name="Opslag"
+        placeholder="bv. 1TB NVMe SSD + 2TB HDD">
+
+      <label>Behuizing / uiterlijk</label>
+      <input type="text" name="Behuizing"
+        placeholder="zwart / wit / RGB / stil / geen voorkeur">
+
+      <label>Extra wensen / opmerkingen</label>
+      <textarea name="Extra wensen" rows="4"
+        placeholder="Stil systeem, upgradebaar, specifieke games/software, budget, …"></textarea>
+
+      <button type="submit">Offerte aanvragen</button>
+
+      <p class="note">
+        Dit betreft een maatwerkofferte. De uiteindelijke prijs wordt
+        bevestigd via e-mail. De bouw start pas na akkoord en betaling.
+      </p>
+
     </form>
+
   </div>
 </section>
+
+<script>
+  document.getElementById("order").value =
+    "ZYNX-" + Math.floor(100000 + Math.random() * 900000);
+</script>
 
 </body>
 </html>
