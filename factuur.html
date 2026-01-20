@@ -13,11 +13,11 @@
     }
 
     .factuur {
-      max-width: 700px;
+      max-width: 750px;
       margin: auto;
       background: white;
       padding: 40px;
-      border-radius: 10px;
+      border-radius: 12px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
 
@@ -26,21 +26,25 @@
     }
 
     .row {
-      margin-bottom: 15px;
+      margin-bottom: 12px;
     }
 
     .label {
       font-weight: bold;
     }
 
+    hr {
+      margin: 20px 0;
+    }
+
     button {
       margin-top: 30px;
-      padding: 14px;
       width: 100%;
+      padding: 16px;
       background: #2563eb;
       color: white;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       font-size: 16px;
       cursor: pointer;
     }
@@ -61,21 +65,25 @@
 <div class="factuur">
   <h1>Factuur</h1>
 
-  <div class="row"><span class="label">Factuurnummer:</span> ZYNX-INV-001</div>
+  <div class="row"><span class="label">Factuurnummer:</span> <span id="order"></span></div>
   <div class="row"><span class="label">Datum:</span> <span id="datum"></span></div>
 
   <hr>
 
-  <div class="row"><span class="label">Klant:</span> __________________</div>
-  <div class="row"><span class="label">Email:</span> __________________</div>
+  <div class="row"><span class="label">Klant:</span> <span id="naam"></span></div>
+  <div class="row"><span class="label">Email:</span> <span id="email"></span></div>
+  <div class="row"><span class="label">Telefoon:</span> <span id="telefoon"></span></div>
 
   <hr>
 
-  <div class="row"><span class="label">Beschrijving:</span><br>
+  <div class="row">
+    <span class="label">Omschrijving:</span><br>
     Custom PC – onderdelen + assemblage
   </div>
 
-  <div class="row"><span class="label">Bedrag:</span> € ______</div>
+  <div class="row">
+    <span class="label">Totaalbedrag:</span> € <span id="bedrag"></span>
+  </div>
 
   <hr>
 
@@ -85,6 +93,16 @@
 </div>
 
 <script>
+  const data = JSON.parse(localStorage.getItem("factuurData"));
+
+  if (data) {
+    document.getElementById("order").innerText = data.order;
+    document.getElementById("naam").innerText = data.naam;
+    document.getElementById("email").innerText = data.email;
+    document.getElementById("telefoon").innerText = data.telefoon;
+    document.getElementById("bedrag").innerText = data.totaal;
+  }
+
   document.getElementById("datum").innerText =
     new Date().toLocaleDateString("nl-BE");
 </script>
