@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Factuur | ZYNX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      padding: 40px;
+    }
+
+    .factuur {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #2563eb;
+    }
+
+    .row {
+      margin-bottom: 15px;
+    }
+
+    .label {
+      font-weight: bold;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 14px;
+      width: 100%;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    @media print {
+      button {
+        display: none;
+      }
+      body {
+        background: white;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="factuur">
+  <h1>Factuur</h1>
+
+  <div class="row"><span class="label">Factuurnummer:</span> ZYNX-INV-001</div>
+  <div class="row"><span class="label">Datum:</span> <span id="datum"></span></div>
+
+  <hr>
+
+  <div class="row"><span class="label">Klant:</span> __________________</div>
+  <div class="row"><span class="label">Email:</span> __________________</div>
+
+  <hr>
+
+  <div class="row"><span class="label">Beschrijving:</span><br>
+    Custom PC – onderdelen + assemblage
+  </div>
+
+  <div class="row"><span class="label">Bedrag:</span> € ______</div>
+
+  <hr>
+
+  <div class="row"><b>Status:</b> Betaald</div>
+
+  <button onclick="window.print()">Factuur downloaden (PDF)</button>
+</div>
+
+<script>
+  document.getElementById("datum").innerText =
+    new Date().toLocaleDateString("nl-BE");
+</script>
+
+</body>
+</html>
