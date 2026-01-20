@@ -6,74 +6,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#f4f7fb;
-}
-header{
-  background:linear-gradient(135deg,#020617,#0b3c5d);
-  color:white;
-  padding:50px;
-  text-align:center;
-}
-nav{
-  background:#020617;
-  padding:15px;
-  text-align:center;
-}
-nav a{
-  color:white;
-  margin:0 15px;
-  text-decoration:none;
-  font-weight:bold;
-}
-section{
-  max-width:1000px;
-  margin:auto;
-  padding:40px 20px;
-}
-.card{
-  background:white;
-  padding:40px;
-  border-radius:16px;
-  box-shadow:0 10px 25px rgba(0,0,0,.15);
-}
-label{
-  font-weight:bold;
-  margin-top:20px;
-  display:block;
-}
-select{
-  width:100%;
-  padding:12px;
-  margin-top:8px;
-  border-radius:8px;
-}
-.total{
-  font-size:26px;
-  font-weight:bold;
-  margin-top:30px;
-}
-.btn{
-  display:inline-block;
-  background:#2563eb;
-  color:white;
-  padding:14px 22px;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:bold;
-  margin-top:20px;
-}
-.whatsapp{
-  background:#25D366;
-  margin-left:10px;
-}
-.note{
-  font-size:14px;
-  color:#555;
-  margin-top:15px;
-}
+body{margin:0;font-family:Arial;background:#f4f7fb}
+header{background:linear-gradient(135deg,#020617,#0b3c5d);color:white;padding:50px;text-align:center}
+nav{background:#020617;padding:15px;text-align:center}
+nav a{color:white;margin:0 15px;text-decoration:none;font-weight:bold}
+section{max-width:1200px;margin:auto;padding:40px}
+.card{background:white;padding:40px;border-radius:18px;box-shadow:0 12px 30px rgba(0,0,0,.15)}
+label{display:block;margin-top:20px;font-weight:bold}
+select{width:100%;padding:12px;margin-top:6px;border-radius:8px}
+.total{font-size:32px;font-weight:bold;margin-top:30px}
+.btn{background:#2563eb;color:white;padding:14px 24px;border-radius:8px;text-decoration:none;font-weight:bold;margin-top:20px;display:inline-block}
+.whatsapp{background:#25D366;margin-left:10px}
+.note{font-size:14px;color:#555;margin-top:15px}
 </style>
 </head>
 
@@ -81,13 +25,13 @@ select{
 
 <header>
 <h1>Custom PC configurator</h1>
-<p>Kies je onderdelen – prijs wordt automatisch berekend</p>
+<p>Maximale keuze • Realistische prijzen • Compatibel</p>
 </header>
 
 <nav>
 <a href="home.html">Home</a>
 <a href="index.html">Shop</a>
-<a href="custom.html">Custom PC</a>
+<a href="custom.html">Custom</a>
 <a href="voorwaarden.html">Voorwaarden</a>
 </nav>
 
@@ -96,50 +40,84 @@ select{
 
 <label>Preset</label>
 <select id="preset">
-  <option value="0">Geen preset</option>
-  <option value="performance">Beste performance</option>
-  <option value="budget">Maakt niet uit</option>
+<option value="0">Geen preset</option>
+<option value="0">Beste performance</option>
+<option value="0">Gaming</option>
+<option value="0">Maakt niet uit</option>
 </select>
 
 <label>CPU</label>
 <select id="cpu">
-  <option data-ram="ddr5" value="450">AMD Ryzen 7 7800X3D (€450)</option>
-  <option data-ram="ddr5" value="650">AMD Ryzen 9 7950X (€650)</option>
-  <option data-ram="ddr5" value="750">Intel i9-14900K (€750)</option>
-  <option data-ram="ddr4" value="380">Intel i7-12700KF (€380)</option>
+<option data-ram="ddr4" value="160">Ryzen 5 5600 (€160)</option>
+<option data-ram="ddr4" value="260">Ryzen 7 5800X (€260)</option>
+<option data-ram="ddr5" value="650">Ryzen 7 7800X3D (€650)</option>
+<option data-ram="ddr5" value="820">Ryzen 9 7950X (€820)</option>
+
+<option data-ram="ddr4" value="180">Intel i5-12400F (€180)</option>
+<option data-ram="ddr4" value="420">Intel i7-12700KF (€420)</option>
+<option data-ram="ddr5" value="580">Intel i7-14700K (€580)</option>
+<option data-ram="ddr5" value="820">Intel i9-14900K (€820)</option>
 </select>
 
 <label>GPU</label>
 <select id="gpu">
-  <option value="900">NVIDIA RTX 5070 (€900)</option>
-  <option value="1300">NVIDIA RTX 5080 (€1300)</option>
-  <option value="1800">NVIDIA RTX 5090 (€1800)</option>
-  <option value="1200">AMD RX 8900 XTX (€1200)</option>
+<option value="320">RTX 4060 (€320)</option>
+<option value="520">RTX 4070 (€520)</option>
+<option value="850">RTX 4080 (€850)</option>
+<option value="950">RTX 5070 (€950)</option>
+<option value="1250">RTX 5080 (€1250)</option>
+<option value="1850">RTX 5090 (€1850)</option>
+
+<option value="520">RX 7800 XT (€520)</option>
+<option value="1100">RX 7900 XTX (€1100)</option>
+<option value="1450">RX 8900 XTX (€1450)</option>
 </select>
 
 <label>RAM</label>
 <select id="ram">
-  <option data-type="ddr4" value="120">32GB DDR4 (€120)</option>
-  <option data-type="ddr5" value="240">32GB DDR5 (€240)</option>
-  <option data-type="ddr5" value="420">64GB DDR5 (€420)</option>
+<option data-type="ddr4" value="90">16GB DDR4 (€90)</option>
+<option data-type="ddr4" value="180">32GB DDR4 (€180)</option>
+<option data-type="ddr4" value="360">64GB DDR4 (€360)</option>
+
+<option data-type="ddr5" value="360">32GB DDR5 (€360)</option>
+<option data-type="ddr5" value="620">64GB DDR5 (€620)</option>
 </select>
 
 <label>Opslag</label>
 <select id="ssd">
-  <option value="100">1TB NVMe SSD (€100)</option>
-  <option value="180">2TB NVMe SSD (€180)</option>
-  <option value="300">4TB NVMe SSD (€300)</option>
+<option value="90">1TB NVMe (€90)</option>
+<option value="170">2TB NVMe (€170)</option>
+<option value="320">4TB NVMe (€320)</option>
+<option value="600">8TB NVMe (€600)</option>
 </select>
 
-<div class="total">
-Totaal: €<span id="total">0</span>
-</div>
+<label>Extra opties</label>
+<select id="extra">
+<option value="0">Geen</option>
+<option value="100">Windows 11 Home (€100)</option>
+<option value="140">Windows 11 Pro (€140)</option>
+<option value="60">Wi-Fi & Bluetooth (€60)</option>
+<option value="90">RGB fans (€90)</option>
+<option value="150">Premium koeling (€150)</option>
+</select>
 
-<p class="note">
-✔ Prijs inclusief assemblage<br>
-✔ 1 jaar garantie<br>
-✔ Betaling vooraf vereist
-</p>
+<label>Keyboard</label>
+<select id="keyboard">
+<option value="0">Geen</option>
+<option value="80">Gaming keyboard (€80)</option>
+<option value="150">High-end keyboard (€150)</option>
+</select>
+
+<label>Muis</label>
+<select id="mouse">
+<option value="0">Geen</option>
+<option value="60">Gaming muis (€60)</option>
+<option value="120">High-end muis (€120)</option>
+</select>
+
+<div class="total">Totaal: €<span id="total">0</span></div>
+
+<p class="note">✔ Assemblage & test inbegrepen • ✔ 1 jaar garantie • ✔ Betaling vooraf</p>
 
 <a id="orderBtn" class="btn">Bestellen</a>
 <a href="https://wa.me/32494938460" class="btn whatsapp">WhatsApp</a>
@@ -148,65 +126,24 @@ Totaal: €<span id="total">0</span>
 </section>
 
 <script>
-const cpu = document.getElementById("cpu");
-const gpu = document.getElementById("gpu");
-const ram = document.getElementById("ram");
-const ssd = document.getElementById("ssd");
-const preset = document.getElementById("preset");
-const totalEl = document.getElementById("total");
+const selects=document.querySelectorAll("select");
+const cpu=document.getElementById("cpu");
+const ram=document.getElementById("ram");
+const totalEl=document.getElementById("total");
 
 function calc(){
-  let total =
-    +cpu.value +
-    +gpu.value +
-    +ram.value +
-    +ssd.value;
-  totalEl.innerText = total;
+ let t=0;
+ selects.forEach(s=>t+=Number(s.value));
+ totalEl.innerText=t;
 }
 
-function checkCompatibility(){
-  const cpuRam = cpu.options[cpu.selectedIndex].dataset.ram;
-  [...ram.options].forEach(opt=>{
-    opt.disabled = opt.dataset.type !== cpuRam;
-  });
+function compat(){
+ const need=cpu.options[cpu.selectedIndex].dataset.ram;
+ [...ram.options].forEach(o=>o.disabled=o.dataset.type!==need);
 }
 
-preset.onchange = () => {
-  if(preset.value === "performance"){
-    cpu.selectedIndex = 2;
-    gpu.selectedIndex = 2;
-    ram.selectedIndex = 2;
-    ssd.selectedIndex = 1;
-  }
-  if(preset.value === "budget"){
-    cpu.selectedIndex = 0;
-    gpu.selectedIndex = 0;
-    ram.selectedIndex = 0;
-    ssd.selectedIndex = 0;
-  }
-  checkCompatibility();
-  calc();
-};
-
-[cpu, gpu, ram, ssd].forEach(e=>{
-  e.onchange = () => {
-    checkCompatibility();
-    calc();
-  };
-});
-
-document.getElementById("orderBtn").onclick = () => {
-  const url =
-`bestel.html?cpu=${cpu.options[cpu.selectedIndex].text}
-&gpu=${gpu.options[gpu.selectedIndex].text}
-&ram=${ram.options[ram.selectedIndex].text}
-&ssd=${ssd.options[ssd.selectedIndex].text}
-&total=${totalEl.innerText}`;
-  window.location.href = url;
-};
-
-checkCompatibility();
-calc();
+selects.forEach(s=>s.onchange=()=>{compat();calc();});
+compat();calc();
 </script>
 
 </body>
