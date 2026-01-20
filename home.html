@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<title>Home | PC Builds België</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f4f7fb;
+  color:#0f172a;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,#020617,#0b3c5d);
+  color:white;
+  padding:70px 20px;
+  text-align:center;
+}
+
+/* NAV */
+nav{
+  background:#020617;
+  padding:14px;
+  text-align:center;
+}
+nav a{
+  color:white;
+  margin:0 15px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* CONTENT */
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:50px 20px;
+}
+
+.card{
+  background:white;
+  padding:40px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,.12);
+  margin-bottom:40px;
+}
+
+/* SLIDER */
+.slider{
+  position:relative;
+  width:100%;
+  height:320px;
+  overflow:hidden;
+  border-radius:16px;
+  margin-top:30px;
+}
+.slide{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity 1s;
+}
+.slide.active{
+  opacity:1;
+}
+
+/* REVIEWS */
+.review{
+  margin-top:20px;
+  padding:20px;
+  background:#f1f5f9;
+  border-radius:12px;
+}
+
+/* FOOTER */
+footer{
+  background:#020617;
+  color:white;
+  padding:50px 20px;
+}
+.footer-grid{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+footer h3{
+  color:#60a5fa;
+  margin-top:0;
+}
+footer a{
+  color:#93c5fd;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>PC Builds België</h1>
+  <p>Gaming PC’s • Workstations • Custom builds op maat</p>
+</header>
+
+<nav>
+  <a href="home.html">Home</a>
+  <a href="index.html">Shop</a>
+  <a href="custom.html">Custom PC</a>
+  <a href="voorwaarden.html">Voorwaarden</a>
+</nav>
+
+<section>
+
+  <div class="card">
+    <h2>Welkom</h2>
+    <p>
+      Wij bouwen krachtige en betrouwbare PC’s op maat voor gaming,
+      werk en zware toepassingen. Elke PC wordt zorgvuldig samengesteld,
+      getest en gebouwd met kwaliteitsonderdelen.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Onze builds</h2>
+    <p>
+      Hieronder zie je binnenkort foto’s van echte klant-builds
+      en speciale projecten.
+    </p>
+
+    <div class="slider">
+      <img src="fotos/build1.jpg" class="slide active" alt="PC build">
+      <img src="fotos/build2.jpg" class="slide" alt="PC build">
+      <img src="fotos/build3.jpg" class="slide" alt="PC build">
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Waarom kiezen voor ons?</h2>
+    <ul>
+      <li>✔ PC’s op maat gebouwd</li>
+      <li>✔ Eerlijk advies & vaste prijzen</li>
+      <li>✔ Gaming & professionele systemen</li>
+      <li>✔ 1 jaar garantie</li>
+      <li>✔ Voorafbetaling = geen verrassingen</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Wat klanten zeggen</h2>
+
+    <div class="review">
+      ⭐⭐⭐⭐⭐<br>
+      <b>“Perfecte gaming PC, zeer tevreden.”</b><br>
+      – Klant uit West-Vlaanderen
+    </div>
+
+    <div class="review">
+      ⭐⭐⭐⭐⭐<br>
+      <b>“Goede communicatie en snelle levering.”</b><br>
+      – Custom build
+    </div>
+
+    <div class="review">
+      ⭐⭐⭐⭐⭐<br>
+      <b>“Exact gekregen wat ik vroeg.”</b><br>
+      – High-end PC
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <div class="footer-grid">
+
+    <div>
+      <h3>Contact</h3>
+      <p>
+        📧 computerbuilderzynx@gmail.com<br>
+        📱 +32 494 93 84 60 (WhatsApp)
+      </p>
+    </div>
+
+    <div>
+      <h3>PC Builds België</h3>
+      <p>
+        Custom computers<br>
+        Gaming & Workstations<br>
+        België
+      </p>
+    </div>
+
+    <div>
+      <h3>Info</h3>
+      <p>
+        <a href="voorwaarden.html">Algemene voorwaarden</a><br>
+        Garantie: 1 jaar<br>
+        Voorafbetaling vereist
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+let current = 0;
+const slides = document.querySelectorAll(".slide");
+
+setInterval(() => {
+  slides[current].classList.remove("active");
+  current = (current + 1) % slides.length;
+  slides[current].classList.add("active");
+}, 4000);
+</script>
+
+</body>
+</html>
