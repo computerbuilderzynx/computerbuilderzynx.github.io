@@ -2,34 +2,22 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <title>Custom PC | ZYNX</title>
+  <title>Custom PC samenstellen | ZYNX</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
-    :root {
-      --bg: #f4f7fb;
-      --card: #ffffff;
-      --text: #0f172a;
-      --accent: #2563eb;
-    }
-
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      background: #f4f7fb;
+      color: #0f172a;
     }
 
     header {
       background: linear-gradient(135deg, #020617, #0b3c5d);
       color: white;
-      padding: 60px 20px;
+      padding: 70px 20px;
       text-align: center;
-    }
-
-    header img {
-      max-width: 220px;
-      margin-bottom: 15px;
     }
 
     nav {
@@ -46,45 +34,47 @@
     }
 
     section {
-      max-width: 800px;
+      max-width: 700px;
       margin: auto;
       padding: 50px 20px;
     }
 
     .card {
-      background: var(--card);
+      background: white;
       padding: 35px;
       border-radius: 14px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-      margin-bottom: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
     }
 
-    h2 {
-      color: var(--accent);
-      margin-top: 0;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    .btn {
-      display: inline-block;
-      background: var(--accent);
-      color: white;
-      padding: 14px 26px;
-      border-radius: 8px;
-      text-decoration: none;
+    label {
       font-weight: bold;
-      margin-top: 15px;
+      display: block;
+      margin-top: 20px;
     }
 
-    footer {
-      background: #020617;
-      color: #9ca3af;
-      text-align: center;
-      padding: 25px;
-      font-size: 14px;
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 25px;
+      width: 100%;
+      padding: 15px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1e40af;
     }
   </style>
 </head>
@@ -92,85 +82,39 @@
 <body>
 
 <header>
-  <img src="logo.png" alt="ZYNX Logo">
-  <h1>Custom PC op maat</h1>
-  <p>Jij kiest de onderdelen, wij bouwen de perfecte PC</p>
+  <h1>Custom PC samenstellen</h1>
+  <p>Volledig op maat – eerlijke offerte</p>
 </header>
 
 <nav>
   <a href="index.html">Shop</a>
   <a href="custom.html">Custom PC</a>
-  <a href="faq.html">FAQ</a>
   <a href="voorwaarden.html">Voorwaarden</a>
 </nav>
 
 <section>
-
   <div class="card">
-    <h2>🔧 Wat is een Custom PC?</h2>
-    <p>
-      Een custom PC wordt volledig op maat samengesteld volgens jouw wensen.
-      Jij kiest de prestaties, het budget en het doel (gaming, werk, AI, streaming…),
-      wij zorgen voor een correcte configuratie en professionele assemblage.
-    </p>
-  </div>
+    <form action="mailto:computerbuilderzynx@gmail.com" method="post" enctype="text/plain">
 
-  <div class="card">
-    <h2>📋 Hoe werkt het?</h2>
-    <ul>
-      <li>Je geeft je budget en gebruik door</li>
-      <li>Wij stellen de beste onderdelen samen</li>
-      <li>Je ontvangt een voorstel + prijs</li>
-      <li>Na voorafbetaling starten we de bouw</li>
-      <li>Elke PC wordt getest voor levering</li>
-    </ul>
-  </div>
+      <label>Naam</label>
+      <input type="text" name="Naam" required>
 
-  <div class="card">
-    <h2>⚙️ Wat kan je kiezen?</h2>
-    <ul>
-      <li>Processor (Intel / AMD)</li>
-      <li>Grafische kaart (NVIDIA / AMD)</li>
-      <li>RAM (16GB – 128GB)</li>
-      <li>Opslag (SSD / NVMe / HDD)</li>
-      <li>Behuizing & RGB</li>
-      <li>Koeling (lucht / water)</li>
-    </ul>
-  </div>
+      <label>Email</label>
+      <input type="email" name="Email" required>
 
-  <div class="card">
-    <h2>🛡️ Garantie & service</h2>
-    <p>
-      ✔ 1 jaar garantie op assemblage<br>
-      ✔ Fabrieksgarantie op alle onderdelen<br>
-      ✔ Grondige tests voor levering<br>
-      ✔ Duidelijke communicatie
-    </p>
-  </div>
+      <label>Budget (€)</label>
+      <input type="number" name="Budget" required>
 
-  <div class="card">
-    <h2>💳 Betaling</h2>
-    <p>
-      Omdat elke custom PC speciaal voor jou wordt gebouwd,
-      vragen wij <strong>volledige voorafbetaling</strong> voordat
-      we starten met de assemblage.
-    </p>
-  </div>
+      <label>Gebruik (games, werk, software)</label>
+      <textarea name="Gebruik" rows="4" required></textarea>
 
-  <div class="card">
-    <h2>📞 Custom PC aanvragen</h2>
-    <p>
-      Klaar om jouw ideale PC samen te stellen?
-      Klik hieronder en kies <strong>“Custom PC”</strong> in het bestelformulier.
-    </p>
-    <a class="btn" href="bestel.html?pc=custom">Custom PC aanvragen</a>
-  </div>
+      <label>Extra wensen (RGB, stil, wit, etc.)</label>
+      <textarea name="Extra"></textarea>
 
+      <button type="submit">Vraag offerte aan</button>
+    </form>
+  </div>
 </section>
-
-<footer>
-  © 2026 ZYNX – Custom PC Builds België
-</footer>
 
 </body>
 </html>
