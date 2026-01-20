@@ -4,24 +4,27 @@
 <meta charset="UTF-8">
 <title>Shop | PC Builds België</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="style.css">
+
 <style>
 body{margin:0;font-family:Arial;background:#f4f7fb}
-header{background:#020617;color:white;padding:60px;text-align:center}
+header{background:linear-gradient(135deg,#020617,#0b3c5d);color:white;padding:50px;text-align:center}
 nav{background:#020617;padding:15px;text-align:center}
 nav a{color:white;margin:0 15px;text-decoration:none;font-weight:bold}
-section{max-width:1100px;margin:auto;padding:40px}
-.card{background:white;padding:30px;border-radius:16px;box-shadow:0 10px 20px rgba(0,0,0,.15);margin-bottom:30px}
+section{max-width:1200px;margin:auto;padding:40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
+.card{background:white;padding:30px;border-radius:18px;box-shadow:0 12px 30px rgba(0,0,0,.15)}
+.card h3{margin-top:0}
+.price{font-size:26px;font-weight:bold;color:#2563eb;margin:15px 0}
 .btn{background:#2563eb;color:white;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:bold;display:inline-block}
-.price{font-size:22px;font-weight:bold;margin-top:10px}
+.tag{display:inline-block;background:#e0e7ff;color:#1e40af;padding:6px 10px;border-radius:6px;font-size:13px;margin-bottom:10px}
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>PC Builds België</h1>
-<p>Gaming • Office • Workstation PC’s</p>
+<h1>Shop – Kant-en-klare PC’s</h1>
+<p>Direct bestellen • Getest • 1 jaar garantie</p>
 </header>
 
 <nav>
@@ -33,31 +36,82 @@ section{max-width:1100px;margin:auto;padding:40px}
 
 <section>
 
+<h2>🎓 Office & School</h2>
+<div class="grid">
 <div class="card">
-<h2>🎮 Gaming PC – Performance</h2>
-<p>Ryzen 7 / RTX 5070 / 32GB RAM / 1TB NVMe</p>
-<p class="price">€2199</p>
-<a href="bestel.html" class="btn">Bestel deze PC</a>
+<span class="tag">Office</span>
+<h3>Office PC Basic</h3>
+<p>
+Intel i5-12400<br>
+16GB DDR4<br>
+1TB NVMe SSD<br>
+Stil & energiezuinig
+</p>
+<div class="price">€699</div>
+<a class="btn" href="bestel.html?product=Office PC Basic&prijs=699">Bestel deze PC</a>
+</div>
+</div>
+
+<h2>🎮 Gaming PC’s</h2>
+<div class="grid">
+
+<div class="card">
+<span class="tag">Gaming</span>
+<h3>Gaming PC Starter</h3>
+<p>
+Ryzen 5 5600<br>
+RTX 4060<br>
+32GB DDR4<br>
+1TB NVMe
+</p>
+<div class="price">€1.099</div>
+<a class="btn" href="bestel.html?product=Gaming PC Starter&prijs=1099">Bestel deze PC</a>
 </div>
 
 <div class="card">
-<h2>🖥️ Office PC</h2>
-<p>Intel i5 / 16GB RAM / 512GB SSD</p>
-<p class="price">€799</p>
-<a href="bestel.html" class="btn">Bestel deze PC</a>
+<span class="tag">Gaming</span>
+<h3>Gaming PC Pro</h3>
+<p>
+Ryzen 7 7800X3D<br>
+RTX 5070<br>
+32GB DDR5<br>
+2TB NVMe
+</p>
+<div class="price">€1.899</div>
+<a class="btn" href="bestel.html?product=Gaming PC Pro&prijs=1899">Bestel deze PC</a>
 </div>
 
 <div class="card">
-<h2>🤖 AI / Workstation PC</h2>
-<p>Ryzen 9 / RTX 5090 / 64GB DDR5 / 2TB NVMe</p>
-<p class="price">€3999</p>
-<a href="bestel.html" class="btn">Bestel deze PC</a>
+<span class="tag">High-End</span>
+<h3>Gaming PC Extreme</h3>
+<p>
+Intel i9-14900K<br>
+RTX 5090<br>
+64GB DDR5<br>
+4TB NVMe
+</p>
+<div class="price">€3.499</div>
+<a class="btn" href="bestel.html?product=Gaming PC Extreme&prijs=3499">Bestel deze PC</a>
 </div>
 
+</div>
+
+<h2>🤖 Creator / AI / Workstation</h2>
+<div class="grid">
+
 <div class="card">
-<h2>⭐ Custom Gaming PC</h2>
-<p>Stel zelf je PC samen</p>
-<a href="custom.html" class="btn">Configureer</a>
+<span class="tag">Workstation</span>
+<h3>Creator PC</h3>
+<p>
+Ryzen 9 7950X<br>
+RTX 5080<br>
+64GB DDR5<br>
+4TB NVMe
+</p>
+<div class="price">€2.899</div>
+<a class="btn" href="bestel.html?product=Creator PC&prijs=2899">Bestel deze PC</a>
+</div>
+
 </div>
 
 </section>
