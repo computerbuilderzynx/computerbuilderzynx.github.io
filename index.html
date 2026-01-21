@@ -17,6 +17,17 @@ header{
   padding:50px 20px;
   text-align:center;
 }
+.topbar{
+  background:#020617;
+  padding:10px 20px;
+  text-align:right;
+}
+.topbar a{
+  color:white;
+  margin-left:10px;
+  text-decoration:none;
+  font-weight:bold;
+}
 nav{
   background:#020617;
   padding:15px;
@@ -80,20 +91,18 @@ h2{
   font-size:14px;
   color:#555;
 }
-select{
-  width:100%;
-  padding:10px;
-  border-radius:8px;
-  margin-top:10px;
-}
 </style>
 </head>
 
 <body>
 
+<div class="topbar">
+  <a href="index.html">NL</a> | <a href="index-en.html">EN</a>
+</div>
+
 <header>
 <h1>Shop – Kant-en-klare PC’s</h1>
-<p>Gebouwd met dezelfde prijzen als de custom configurator</p>
+<p>Office, Gaming en AI / Workstation PC’s</p>
 </header>
 
 <nav>
@@ -111,34 +120,14 @@ select{
 
 <div class="card">
 <span class="badge green">Meest verkocht</span>
-<h3>Office PC Basic</h3>
+<h3>Office PC</h3>
 <p>
 Intel i5-12400F<br>
-1TB NVMe SSD<br>
-Geen aparte GPU
+16GB DDR4<br>
+1TB NVMe SSD
 </p>
-
-<label>RAM</label>
-<select id="officeRam">
-<option value="16GB">16GB DDR4</option>
-<option value="32GB">32GB DDR4 (+€80)</option>
-</select>
-
-<div class="price">Vanaf €450</div>
-<a class="btn" onclick="orderOffice()">Bestel deze PC</a>
-<p class="note">Ideaal voor school en werk</p>
-</div>
-
-<div class="card">
-<span class="badge">Pro</span>
-<h3>Office PC Pro</h3>
-<p>
-Intel i7-12700KF<br>
-32GB DDR4<br>
-2TB NVMe SSD
-</p>
-<div class="price">€699</div>
-<a class="btn" href="bestel.html?product=Office PC Pro">Bestel deze PC</a>
+<div class="price">€450</div>
+<a class="btn" href="bestel.html?product=Office PC">Bestel deze PC</a>
 </div>
 
 </div>
@@ -148,7 +137,7 @@ Intel i7-12700KF<br>
 <div class="grid">
 
 <div class="card">
-<span class="badge green">Aanrader</span>
+<span class="badge">Aanrader</span>
 <h3>Gaming PC Starter</h3>
 <p>
 Ryzen 5 5600<br>
@@ -161,7 +150,7 @@ RTX 4060<br>
 </div>
 
 <div class="card">
-<span class="badge">Pro</span>
+<span class="badge green">Meest verkocht</span>
 <h3>Gaming PC Pro</h3>
 <p>
 Ryzen 7 7800X3D<br>
@@ -188,7 +177,7 @@ RTX 4090<br>
 
 </div>
 
-<!-- AI / WORKSTATION -->
+<!-- AI -->
 <h2>🤖 AI / Workstation</h2>
 <div class="grid">
 
@@ -197,7 +186,7 @@ RTX 4090<br>
 <h3>AI / Creator PC</h3>
 <p>
 Ryzen 7 9800X3D<br>
-RTX 4080<br>
+RTX 4080 SUPER<br>
 64GB DDR5<br>
 2TB NVMe
 </p>
@@ -223,22 +212,14 @@ RTX 4090<br>
 <!-- CUSTOM -->
 <h2>🛠️ Zelf samenstellen?</h2>
 <div class="card">
-<h3>Custom PC op maat</h3>
+<h3>Custom PC</h3>
 <p>
-Stel zelf je ideale PC samen met onze configurator.<br>
-CPU, GPU, RAM en meer.
+Stel zelf je PC samen met veel keuzes in CPU, GPU en RAM.
 </p>
 <a class="btn" href="custom.html">Ga naar custom configurator</a>
 </div>
 
 </section>
-
-<script>
-function orderOffice(){
-  const ram=document.getElementById("officeRam").value;
-  window.location.href="bestel.html?product=Office PC Basic ("+ram+")";
-}
-</script>
 
 </body>
 </html>
