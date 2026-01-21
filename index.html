@@ -2,177 +2,102 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Custom PC | PC Builds Belgium</title>
+<title>PC Builds Belgium | Gaming & Custom PCs</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body{margin:0;font-family:Arial;background:#f4f7fb}
 .topbar{background:#020617;padding:10px 20px;text-align:right}
-.topbar a{color:white;text-decoration:none;font-weight:bold;margin-left:10px}
-header{background:linear-gradient(135deg,#020617,#0b3c5d);color:white;padding:50px 20px;text-align:center}
-nav{background:#020617;padding:15px;text-align:center}
-nav a{color:white;margin:0 15px;text-decoration:none;font-weight:bold}
-section{max-width:1000px;margin:auto;padding:40px 20px}
-.card{background:white;padding:35px;border-radius:20px;box-shadow:0 15px 40px rgba(0,0,0,.15)}
-label{display:block;font-weight:bold;margin-top:20px}
-select{width:100%;padding:14px;border-radius:10px;margin-top:8px}
-.price{font-size:36px;font-weight:bold;color:#2563eb;margin:30px 0}
-.btn{background:#2563eb;color:white;padding:16px 26px;border-radius:12px;text-decoration:none;font-weight:bold;display:inline-block;margin-right:10px}
-.whatsapp{background:#25D366}
-.warning{color:#dc2626;font-weight:bold;margin-top:15px}
+.topbar a{color:white;font-weight:bold;text-decoration:none;margin-left:10px}
+header{background:linear-gradient(135deg,#020617,#0b3c5d);color:white;padding:60px 20px;text-align:center}
+section{max-width:1200px;margin:auto;padding:50px 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+.card{background:white;padding:30px;border-radius:20px;box-shadow:0 15px 40px rgba(0,0,0,.15);position:relative}
+.badge{position:absolute;top:20px;right:20px;background:#2563eb;color:white;padding:6px 14px;border-radius:20px;font-size:14px;font-weight:bold}
+h2{margin-top:0}
+.price{font-size:32px;font-weight:bold;color:#2563eb;margin:15px 0}
+.btn{display:inline-block;background:#2563eb;color:white;padding:14px 22px;border-radius:12px;text-decoration:none;font-weight:bold;margin-right:10px;margin-top:10px}
+.secondary{background:#020617}
+footer{background:#020617;color:white;text-align:center;padding:30px 20px;margin-top:60px}
 </style>
 </head>
 
 <body>
 
 <div class="topbar">
-<a href="custom.html">NL</a> | <a href="custom-en.html">EN</a>
+<a href="index.html">NL</a> | <a href="index-en.html">EN</a>
 </div>
 
 <header>
-<h1>🛠️ Build Your Custom PC</h1>
-<p>Maximum choice – professionally assembled</p>
+<h1>PC Builds Belgium</h1>
+<p>Gaming • Office • AI • Custom PCs</p>
+<a href="custom-en.html" class="btn">Build your PC</a>
 </header>
 
-<nav>
-<a href="index-en.html">Shop</a>
-<a href="custom-en.html">Custom PC</a>
-<a href="voorwaarden-en.html">Terms & Conditions</a>
-</nav>
-
 <section>
+<div class="grid">
+
 <div class="card">
+<h2>🖥️ Office PC</h2>
+<p>Silent, fast and reliable for work & school.</p>
+<ul>
+<li>Intel / AMD CPU</li>
+<li>32GB RAM</li>
+<li>1TB NVMe</li>
+</ul>
+<div class="price">From €699</div>
+<a href="bestel-en.html?type=office" class="btn">Choose options</a>
+</div>
 
-<h2>🎯 Presets</h2>
-<select onchange="applyPreset(this.value)">
-<option value="">-- Choose preset --</option>
-<option value="starter">Gaming Starter</option>
-<option value="pro">Gaming Pro (best seller)</option>
-<option value="extreme">Gaming Extreme</option>
-<option value="ai">AI / Workstation</option>
-</select>
+<div class="card">
+<span class="badge">Best seller</span>
+<h2>🎮 Gaming PC</h2>
+<p>Perfect for 1080p & 1440p gaming.</p>
+<ul>
+<li>RTX 5070 / RX 7800 XT</li>
+<li>Ryzen 7 7800X3D</li>
+<li>32GB DDR5</li>
+</ul>
+<div class="price">From €1,699</div>
+<a href="bestel-en.html?type=gaming" class="btn">Choose options</a>
+</div>
 
-<label>Processor (CPU)</label>
-<select id="cpu" onchange="updatePrice()">
+<div class="card">
+<h2>🔥 High-End Gaming</h2>
+<p>Maximum performance, future-proof.</p>
+<ul>
+<li>RTX 5080 / 5090</li>
+<li>Ryzen 7 9800X3D</li>
+<li>64GB DDR5</li>
+</ul>
+<div class="price">From €2,799</div>
+<a href="bestel-en.html?type=extreme" class="btn">Choose options</a>
+</div>
 
-<optgroup label="AMD DDR4">
-<option data-ram="ddr4" value="160">Ryzen 5 5600 (€160)</option>
-<option data-ram="ddr4" value="260">Ryzen 7 5800X (€260)</option>
-</optgroup>
-
-<optgroup label="AMD DDR5">
-<option data-ram="ddr5" value="450">Ryzen 5 7600X (€450)</option>
-<option data-ram="ddr5" value="650">Ryzen 7 7800X3D (€650)</option>
-<option data-ram="ddr5" value="720">Ryzen 7 9800X3D (€720)</option>
-<option data-ram="ddr5" value="540">Ryzen 9 9950X (€540)</option>
-</optgroup>
-
-<optgroup label="Intel DDR4">
-<option data-ram="ddr4" value="180">Intel i5-12400F (€180)</option>
-<option data-ram="ddr4" value="420">Intel i7-12700KF (€420)</option>
-</optgroup>
-
-<optgroup label="Intel DDR5">
-<option data-ram="ddr5" value="380">Intel i5-13600K (€380)</option>
-<option data-ram="ddr5" value="580">Intel i7-14700K (€580)</option>
-<option data-ram="ddr5" value="820">Intel i9-14900K (€820)</option>
-</optgroup>
-
-</select>
-
-<label>Graphics Card (GPU)</label>
-<select id="gpu" onchange="updatePrice()">
-
-<optgroup label="NVIDIA RTX 40 Series">
-<option value="350">RTX 4060 (€350)</option>
-<option value="620">RTX 4070 (€620)</option>
-<option value="820">RTX 4070 Ti SUPER (€820)</option>
-<option value="1150">RTX 4080 SUPER (€1,150)</option>
-<option value="1799">RTX 4090 (€1,799)</option>
-</optgroup>
-
-<optgroup label="NVIDIA RTX 50 Series">
-<option value="899">RTX 5070 (€899)</option>
-<option value="1199">RTX 5080 (€1,199)</option>
-<option value="1599">RTX 5090 (€1,599)</option>
-</optgroup>
-
-</select>
-
-<label>Memory (RAM)</label>
-<select id="ram" onchange="updatePrice()">
-<option data-type="ddr4" value="90">32GB DDR4 (€90)</option>
-<option data-type="ddr4" value="160">64GB DDR4 (€160)</option>
-<option data-type="ddr5" value="280">32GB DDR5 (€280)</option>
-<option data-type="ddr5" value="520">64GB DDR5 (€520)</option>
-<option data-type="ddr5" value="980">128GB DDR5 (€980)</option>
-</select>
-
-<label>Storage</label>
-<select id="storage" onchange="updatePrice()">
-<option value="90">1TB NVMe (€90)</option>
-<option value="160">2TB NVMe (€160)</option>
-<option value="320">4TB NVMe (€320)</option>
-</select>
-
-<div class="price">Total: €<span id="total">0</span></div>
-<p id="compat" class="warning"></p>
-
-<a class="btn" onclick="order()">Order / Quote</a>
-<a class="btn whatsapp" id="whatsapp" target="_blank">WhatsApp</a>
+<div class="card">
+<h2>🤖 AI / Workstation PC</h2>
+<p>For AI, rendering & heavy workloads.</p>
+<ul>
+<li>RTX 5090</li>
+<li>Ryzen 9 9950X</li>
+<li>128GB DDR5</li>
+</ul>
+<div class="price">From €3,499</div>
+<a href="bestel-en.html?type=ai" class="btn">Choose options</a>
+</div>
 
 </div>
 </section>
 
-<script>
-function updatePrice(){
-const cpu=document.getElementById("cpu");
-const gpu=document.getElementById("gpu");
-const ram=document.getElementById("ram");
-const storage=document.getElementById("storage");
+<section style="text-align:center">
+<h2>Want full freedom?</h2>
+<p>Choose every component yourself.</p>
+<a href="custom-en.html" class="btn secondary">Custom PC builder</a>
+</section>
 
-const total =
-Number(cpu.value)+Number(gpu.value)+Number(ram.value)+Number(storage.value);
-document.getElementById("total").innerText=total;
-
-const cpuRam=cpu.options[cpu.selectedIndex].dataset.ram;
-const ramType=ram.options[ram.selectedIndex].dataset.type;
-
-document.getElementById("compat").innerText =
-(cpuRam!==ramType) ? "⚠ DDR4 / DDR5 is not compatible with this CPU" : "";
-
-document.getElementById("whatsapp").href =
-"https://wa.me/32494938460?text=Custom%20PC%20quote%20€"+total;
-}
-
-function applyPreset(p){
-if(p==="starter"){
-select("7600X","5070","32GB DDR5","1TB");
-}
-if(p==="pro"){
-select("7800X3D","5080","32GB DDR5","2TB");
-}
-if(p==="extreme"){
-select("9800X3D","5090","64GB DDR5","4TB");
-}
-if(p==="ai"){
-select("9950X","5090","128GB DDR5","4TB");
-}
-updatePrice();
-}
-
-function select(cpuTxt,gpuTxt,ramTxt,storTxt){
-[...cpu.options].find(o=>o.text.includes(cpuTxt)).selected=true;
-[...gpu.options].find(o=>o.text.includes(gpuTxt)).selected=true;
-[...ram.options].find(o=>o.text.includes(ramTxt)).selected=true;
-[...storage.options].find(o=>o.text.includes(storTxt)).selected=true;
-}
-
-function order(){
-window.location.href="bestel-en.html?custom=true&price="+total.innerText;
-}
-
-updatePrice();
-</script>
+<footer>
+<p>📧 computerbuilderzynx@gmail.com | 📱 +32 494 93 84 60</p>
+<p>© 2026 PC Builds Belgium</p>
+</footer>
 
 </body>
 </html>
