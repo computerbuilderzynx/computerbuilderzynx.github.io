@@ -221,20 +221,21 @@ document.getElementById("whatsapp").href =
 }
 
 function applyPreset(p){
-if(p==="starter"){
-select("7600X","5070","32GB DDR5","1TB");
+  if(p==="starter"){
+    select("9600X","RTX 5070","32GB DDR5","1TB");
+  }
+  if(p==="pro"){
+    select("7800X3D","RTX 5080","32GB DDR5","2TB");
+  }
+  if(p==="extreme"){
+    select("9800X3D","RTX 5090","64GB DDR5","4TB");
+  }
+  if(p==="ai"){
+    select("9950X","RTX 5090","128GB DDR5","4TB");
+  }
+  updatePrice();
 }
-if(p==="pro"){
-select("7800X3D","5080","32GB DDR5","2TB");
-}
-if(p==="extreme"){
-select("9800X3D","5090","64GB DDR5","4TB");
-}
-if(p==="ai"){
-select("9950X","5090","128GB DDR5","4TB");
-}
-updatePrice();
-}
+
 
 function select(cpuTxt,gpuTxt,ramTxt,storTxt){
 [...cpu.options].find(o=>o.text.includes(cpuTxt)).selected=true;
