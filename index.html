@@ -4,14 +4,85 @@
 <meta charset="UTF-8">
 <title>Shop | PC Builds België</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
-body{margin:0;font-family:Arial;background:#f4f7fb}
-header{background:#020617;color:white;padding:40px;text-align:center}
-section{max-width:1200px;margin:auto;padding:40px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
-.card{background:white;padding:25px;border-radius:16px;box-shadow:0 12px 30px rgba(0,0,0,.15)}
-.price{font-size:26px;color:#2563eb;font-weight:bold}
-.btn{background:#2563eb;color:white;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:bold}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f4f7fb;
+}
+header{
+  background:linear-gradient(135deg,#020617,#0b3c5d);
+  color:white;
+  padding:50px 20px;
+  text-align:center;
+}
+nav{
+  background:#020617;
+  padding:15px;
+  text-align:center;
+}
+nav a{
+  color:white;
+  margin:0 15px;
+  text-decoration:none;
+  font-weight:bold;
+}
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 20px;
+}
+h2{
+  margin-top:60px;
+  margin-bottom:20px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+}
+.card{
+  background:white;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 12px 30px rgba(0,0,0,.15);
+  position:relative;
+}
+.badge{
+  position:absolute;
+  top:20px;
+  right:20px;
+  background:#2563eb;
+  color:white;
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
+}
+.price{
+  font-size:26px;
+  font-weight:bold;
+  color:#2563eb;
+  margin:15px 0;
+}
+.btn{
+  background:#2563eb;
+  color:white;
+  padding:12px 20px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+  display:inline-block;
+}
+.note{
+  font-size:14px;
+  color:#555;
+}
+.option{
+  font-size:14px;
+  margin-top:8px;
+}
 </style>
 </head>
 
@@ -19,27 +90,113 @@ section{max-width:1200px;margin:auto;padding:40px}
 
 <header>
 <h1>Shop – Kant-en-klare PC’s</h1>
-<p>Gebouwd met dezelfde prijzen als custom configurator</p>
+<p>Direct bestellen • Zelfde prijzen als custom configurator</p>
 </header>
+
+<nav>
+<a href="home.html">Home</a>
+<a href="index.html">Shop</a>
+<a href="custom.html">Custom PC</a>
+<a href="voorwaarden.html">Voorwaarden</a>
+</nav>
 
 <section>
 
+<!-- OFFICE -->
+<h2>🖥️ Office & School PC’s</h2>
 <div class="grid">
 
 <div class="card">
-<h3>Gaming PC</h3>
-<p>Ryzen 7 7800X3D<br>RTX 4070 Ti SUPER<br>32GB DDR5<br>2TB NVMe</p>
-<div class="price">€1.978</div>
-<a class="btn" href="bestel.html">Bestel</a>
+<span class="badge">Meest gekozen</span>
+<h3>Office PC Basic</h3>
+<p>
+Intel i5-12400F<br>
+16GB DDR4<br>
+1TB NVMe SSD<br>
+Geen aparte GPU
+</p>
+<div class="price">€450</div>
+
+<a class="btn" href="bestel.html?product=Office PC Basic">Bestel deze PC</a>
+
+<p class="option">
+➡️ Upgrade naar <b>32GB DDR4</b> mogelijk
+</p>
+
+<p class="note">Perfect voor school, werk en administratie</p>
+</div>
+
+</div>
+
+<!-- GAMING -->
+<h2>🎮 Gaming PC’s</h2>
+<div class="grid">
+
+<div class="card">
+<span class="badge">Aanrader</span>
+<h3>Gaming PC Starter</h3>
+<p>
+Ryzen 5 5600<br>
+RTX 4060<br>
+32GB DDR4<br>
+1TB NVMe
+</p>
+<div class="price">€979</div>
+
+<a class="btn" href="bestel.html?product=Gaming PC Starter">Bestel deze PC</a>
+
+<p class="note">1080p gaming & esports</p>
 </div>
 
 <div class="card">
-<h3>High-End Gaming</h3>
-<p>Intel i9-14900K<br>RTX 4090<br>64GB DDR5<br>4TB NVMe</p>
-<div class="price">€3.828</div>
-<a class="btn" href="bestel.html">Bestel</a>
+<span class="badge">Top keuze</span>
+<h3>Gaming PC Pro</h3>
+<p>
+Ryzen 7 7800X3D<br>
+RTX 4070 Ti SUPER<br>
+32GB DDR5<br>
+2TB NVMe
+</p>
+<div class="price">€1.978</div>
+
+<a class="btn" href="bestel.html?product=Gaming PC Pro">Bestel deze PC</a>
+
+<p class="note">1440p / high-end gaming</p>
 </div>
 
+</div>
+
+<!-- HIGH END -->
+<h2>🚀 High-End / Creator</h2>
+<div class="grid">
+
+<div class="card">
+<span class="badge">Extreme</span>
+<h3>High-End Gaming / AI</h3>
+<p>
+Intel i9-14900K<br>
+RTX 4090<br>
+64GB DDR5<br>
+4TB NVMe
+</p>
+<div class="price">€3.828</div>
+
+<a class="btn" href="bestel.html?product=High-End Gaming AI PC">Bestel deze PC</a>
+
+<p class="note">AI, rendering, 4K gaming</p>
+</div>
+
+</div>
+
+<!-- CUSTOM CTA -->
+<h2>🛠️ Zelf samenstellen?</h2>
+<div class="card">
+<h3>Custom PC op maat</h3>
+<p>
+Kies zelf je CPU, GPU, RAM en opslag.<br>
+Automatische prijsberekening.
+</p>
+<a class="btn" href="custom.html">Ga naar custom configurator</a>
 </div>
 
 </section>
