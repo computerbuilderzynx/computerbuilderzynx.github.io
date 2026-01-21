@@ -206,58 +206,57 @@ Inclusief €300 voor behuizing, moederbord, voeding, koeling en professionele m
 </section>
 
 <script>
-const ASSEMBLY_COST = 300;
 function updatePrice(){
-const cpu=document.getElementById("cpu");
-const gpu=document.getElementById("gpu");
-const ram=document.getElementById("ram");
-const storage=document.getElementById("storage");
+  const cpu = document.getElementById("cpu");
+  const gpu = document.getElementById("gpu");
+  const ram = document.getElementById("ram");
+  const storage = document.getElementById("storage");
 
-const subtotal =
-Number(cpu.value) +
-Number(gpu.value) +
-Number(ram.value) +
-Number(storage.value);
+  const partsTotal =
+    Number(cpu.value) +
+    Number(gpu.value) +
+    Number(ram.value) +
+    Number(storage.value);
 
-const total = subtotal + ASSEMBLY_COST;
+  const serviceFee = 60;
+  const grandTotal = partsTotal + serviceFee;
 
-document.getElementById("total").innerText = total;
+  document.getElementById("total").innerText = grandTotal;
 
-const cpuRam=cpu.options[cpu.selectedIndex].dataset.ram;
-const ramType=ram.options[ram.selectedIndex].dataset.type;
+  const cpuRam = cpu.options[cpu.selectedIndex].dataset.ram;
+  const ramType = ram.options[ram.selectedIndex].dataset.type;
 
-document.getElementById("compat").innerText =
-(cpuRam!==ramType) ? "⚠ DDR4 / DDR5 is niet compatibel met deze CPU" : "";
+  document.getElementById("compat").innerText =
+    cpuRam !== ramType ? "⚠ DDR4 / DDR5 is not compatible with this CPU" : "";
 
-document.getElementById("whatsapp").href =
-"https://wa.me/32494938460?text=Custom%20PC%20offerte%20€"+total;
-}
-
-function applyPreset(p){
-if(p==="starter"){
-select("7600X","5070","32GB DDR5","1TB");
-}
-if(p==="pro"){
-select("7800X3D","5080","32GB DDR5","2TB");
-}
-if(p==="extreme"){
-select("9800X3D","5090","64GB DDR5","4TB");
-}
-if(p==="ai"){
-select("9950X","5090","128GB DDR5","4TB");
-}
-updatePrice();
-}
-
-function select(cpuTxt,gpuTxt,ramTxt,storTxt){
-[...cpu.options].find(o=>o.text.includes(cpuTxt)).selected=true;
-[...gpu.options].find(o=>o.text.includes(gpuTxt)).selected=true;
-[...ram.options].find(o=>o.text.includes(ramTxt)).selected=true;
-[...storage.options].find(o=>o.text.includes(storTxt)).selected=true;
+  document.getElementById("whatsapp").href =
+    "https://wa.me/32494938460?text=Custom%20PC%20quote%20€" + grandTotal;
 }
 
 function order(){
-window.location.href="order-en.html?custom=true&price="+total.innerText;
+  const cpu = document.getElementById("cpu");
+  const gpu = document.getElementById("gpu");
+  const ram = document.getElementById("ram");
+  const storage = document.getElementById("storage");
+
+  const partsTotal =
+    Number(cpu.value) +
+    Number(gpu.value) +
+    Number(ram.value) +
+    Number(storage.value);
+
+  const serviceFee = 300;
+  const grandTotal = partsTotal + serviceFee;
+
+  window.location.href =
+    "order-en.html" +
+    "?cpu=" + encodeURIComponent(cpu.options[cpu.selectedIndex].text) +
+    "&gpu=" + encodeURIComponent(gpu.options[gpu.selectedIndex].text) +
+    "&ram=" + encodeURIComponent(ram.options[ram.selectedIndex].text) +
+    "&ssd=" + encodeURIComponent(storage.options[storage.selectedIndex].text) +
+    "&parts=" + partsTotal +
+    "&service=" + serviceFee +
+    "&total=" + grandTotal;
 }
 
 updatePrice();
