@@ -2,208 +2,176 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<title>Custom PC Configurator | PC Builds België</title>
+<title>Custom PC | PC Builds België</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <style>
 body{margin:0;font-family:Arial;background:#f4f7fb}
-header{background:linear-gradient(135deg,#020617,#0b3c5d);color:white;padding:40px;text-align:center}
-nav{background:#020617;padding:12px;text-align:center}
-nav a{color:white;margin:0 12px;text-decoration:none;font-weight:bold}
-
-section{max-width:1200px;margin:auto;padding:30px}
-.card{background:white;padding:30px;border-radius:18px;box-shadow:0 12px 30px rgba(0,0,0,.15);margin-bottom:30px}
-
-label{font-weight:bold;display:block;margin-top:15px}
-select{width:100%;padding:12px;border-radius:8px;border:1px solid #ccc;margin-top:6px}
-
-.preset-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.preset{
-  border:2px solid #2563eb;
-  border-radius:16px;
-  padding:20px;
-  cursor:pointer;
-  background:#eef2ff
-}
-.preset:hover{background:#e0e7ff}
-.price{font-size:26px;font-weight:bold;color:#2563eb;margin-top:20px}
-
-.btn{
-  background:#2563eb;
-  color:white;
-  padding:14px 22px;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:bold;
-  display:inline-block;
-  margin-top:20px
-}
-
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:white;
-  padding:16px;
-  border-radius:50%;
-  font-size:26px;
-  text-decoration:none
-}
+.topbar{background:#020617;padding:10px 20px;text-align:right}
+.topbar a{color:white;text-decoration:none;font-weight:bold;margin-left:10px}
+header{background:linear-gradient(135deg,#020617,#0b3c5d);color:white;padding:50px 20px;text-align:center}
+nav{background:#020617;padding:15px;text-align:center}
+nav a{color:white;margin:0 15px;text-decoration:none;font-weight:bold}
+section{max-width:1000px;margin:auto;padding:40px 20px}
+.card{background:white;padding:35px;border-radius:20px;box-shadow:0 15px 40px rgba(0,0,0,.15)}
+label{display:block;font-weight:bold;margin-top:20px}
+select{width:100%;padding:14px;border-radius:10px;margin-top:8px}
+.price{font-size:36px;font-weight:bold;color:#2563eb;margin:30px 0}
+.btn{background:#2563eb;color:white;padding:16px 26px;border-radius:12px;text-decoration:none;font-weight:bold;display:inline-block;margin-right:10px}
+.whatsapp{background:#25D366}
+.warning{color:#dc2626;font-weight:bold;margin-top:15px}
 </style>
 </head>
 
 <body>
 
+<div class="topbar">
+<a href="custom.html">NL</a> | <a href="custom-en.html">EN</a>
+</div>
+
 <header>
-<h1>Custom PC Configurator</h1>
-<p>Kies je onderdelen • Automatische offerte</p>
+<h1>🛠️ Stel je Custom PC samen</h1>
+<p>Maximale keuze – professioneel gebouwd</p>
 </header>
 
 <nav>
-<a href="home.html">Home</a>
 <a href="index.html">Shop</a>
 <a href="custom.html">Custom PC</a>
 <a href="voorwaarden.html">Voorwaarden</a>
 </nav>
 
 <section>
-
 <div class="card">
+
 <h2>🎯 Presets</h2>
-<div class="preset-grid">
+<select onchange="applyPreset(this.value)">
+<option value="">-- Kies preset --</option>
+<option value="starter">Gaming Starter</option>
+<option value="pro">Gaming Pro (meest verkocht)</option>
+<option value="extreme">Gaming Extreme</option>
+<option value="ai">AI / Workstation</option>
+</select>
 
-<div class="preset" onclick="presetGaming()">
-<h3>🎮 Gaming</h3>
-<p>Beste prijs/prestatie voor gaming</p>
-</div>
+<label>Processor (CPU)</label>
+<select id="cpu" onchange="updatePrice()">
 
-<div class="preset" onclick="presetPerformance()">
-<h3>🚀 Beste performance</h3>
-<p>Geen compromissen</p>
-</div>
+<optgroup label="AMD DDR4">
+<option data-ram="ddr4" value="160">Ryzen 5 5600 (€160)</option>
+<option data-ram="ddr4" value="260">Ryzen 7 5800X (€260)</option>
+</optgroup>
 
-<div class="preset" onclick="presetBalanced()">
-<h3>⚖️ Maakt niet uit</h3>
-<p>Gebalanceerd systeem</p>
-</div>
-
-</div>
-</div>
-
-<div class="card">
-<h2>⚙️ Configuratie</h2>
-
-<label>Processor</label>
-<select id="cpu" onchange="filterRam();calc()">
-<option value="0">Kies CPU</option>
-
-<option data-ram="ddr4" value="150">Ryzen 5 5600 (€150)</option>
-<option data-ram="ddr4" value="200">Ryzen 7 5800X (€200)</option>
-<option data-ram="ddr5" value="220">Ryzen 5 9600X (€220)</option>
-<option data-ram="ddr5" value="400">Ryzen 7 7800X3D (€400)</option>
-<option data-ram="ddr5" value="470">Ryzen 7 9800X3D (€470)</option>
+<optgroup label="AMD DDR5">
+<option data-ram="ddr5" value="450">Ryzen 5 7600X (€450)</option>
+<option data-ram="ddr5" value="650">Ryzen 7 7800X3D (€650)</option>
+<option data-ram="ddr5" value="720">Ryzen 7 9800X3D (€720)</option>
 <option data-ram="ddr5" value="540">Ryzen 9 9950X (€540)</option>
+</optgroup>
 
-<option data-ram="ddr4" value="160">Intel i5-12400F (€160)</option>
-<option data-ram="ddr4" value="240">Intel i7-12700KF (€240)</option>
-<option data-ram="ddr5" value="370">Intel i7-14700K (€370)</option>
-<option data-ram="ddr5" value="480">Intel i9-14900K (€480)</option>
+<optgroup label="Intel DDR4">
+<option data-ram="ddr4" value="180">Intel i5-12400F (€180)</option>
+<option data-ram="ddr4" value="420">Intel i7-12700KF (€420)</option>
+</optgroup>
+
+<optgroup label="Intel DDR5">
+<option data-ram="ddr5" value="380">Intel i5-13600K (€380)</option>
+<option data-ram="ddr5" value="580">Intel i7-14700K (€580)</option>
+<option data-ram="ddr5" value="820">Intel i9-14900K (€820)</option>
+</optgroup>
+
 </select>
 
-<label>Grafische kaart</label>
-<select id="gpu" onchange="calc()">
-<option value="0">Kies GPU</option>
-<option value="400">RTX 4060 (€400)</option>
-<option value="530">RTX 4060 Ti (€530)</option>
-<option value="660">RTX 4070 (€660)</option>
-<option value="790">RTX 4070 Ti (€790)</option>
-<option value="899">RTX 4070 Ti SUPER (€899)</option>
-<option value="1199">RTX 4080 (€1199)</option>
-<option value="1799">RTX 4090 (€1799)</option>
+<label>Grafische kaart (GPU)</label>
+<select id="gpu" onchange="updatePrice()">
 
-<option value="460">RX 7600 XT (€460)</option>
-<option value="599">RX 7700 XT (€599)</option>
-<option value="970">RX 7800 XT (€970)</option>
-<option value="1199">RX 7900 XT (€1199)</option>
-<option value="1299">RX 7900 XTX (€1299)</option>
-<option value="840">RX 9070 XT (€840)</option>
+<optgroup label="NVIDIA RTX 40">
+<option value="350">RTX 4060 (€350)</option>
+<option value="620">RTX 4070 (€620)</option>
+<option value="820">RTX 4070 Ti SUPER (€820)</option>
+<option value="1150">RTX 4080 SUPER (€1.150)</option>
+<option value="1799">RTX 4090 (€1.799)</option>
+</optgroup>
+
+<optgroup label="NVIDIA RTX 50">
+<option value="899">RTX 5070 (€899)</option>
+<option value="1199">RTX 5080 (€1.199)</option>
+<option value="1599">RTX 5090 (€1.599)</option>
+</optgroup>
+
 </select>
 
-<label>RAM</label>
-<select id="ram" onchange="calc()">
-<option value="0">Kies RAM</option>
-<option data-type="ddr4" value="170">16GB DDR4 (€170)</option>
-<option data-type="ddr4" value="299">32GB DDR4 (€299)</option>
-<option data-type="ddr4" value="650">64GB DDR4 (€650)</option>
-
-<option data-type="ddr5" value="390">16GB DDR5 (€390)</option>
-<option data-type="ddr5" value="479">32GB DDR5 (€479)</option>
-<option data-type="ddr5" value="899">64GB DDR5 (€899)</option>
-<option data-type="ddr5" value="2679">128GB DDR5 (€2679)</option>
+<label>Geheugen (RAM)</label>
+<select id="ram" onchange="updatePrice()">
+<option data-type="ddr4" value="90">32GB DDR4 (€90)</option>
+<option data-type="ddr4" value="160">64GB DDR4 (€160)</option>
+<option data-type="ddr5" value="280">32GB DDR5 (€280)</option>
+<option data-type="ddr5" value="520">64GB DDR5 (€520)</option>
+<option data-type="ddr5" value="980">128GB DDR5 (€980)</option>
 </select>
 
 <label>Opslag</label>
-<select id="ssd" onchange="calc()">
-<option value="0">Kies opslag</option>
-<option value="120">1TB NVMe (€120)</option>
-<option value="200">2TB NVMe (€200)</option>
-<option value="350">4TB NVMe (€350)</option>
+<select id="storage" onchange="updatePrice()">
+<option value="90">1TB NVMe (€90)</option>
+<option value="160">2TB NVMe (€160)</option>
+<option value="320">4TB NVMe (€320)</option>
 </select>
 
 <div class="price">Totaal: €<span id="total">0</span></div>
+<p id="compat" class="warning"></p>
 
-<a class="btn" href="bestel.html">Bestel deze configuratie</a>
+<a class="btn" onclick="order()">Bestellen / Offerte</a>
+<a class="btn whatsapp" id="whatsapp" target="_blank">WhatsApp</a>
 
 </div>
-
 </section>
 
-<a class="whatsapp" href="https://wa.me/32494938460" target="_blank">💬</a>
-
 <script>
+function updatePrice(){
 const cpu=document.getElementById("cpu");
+const gpu=document.getElementById("gpu");
 const ram=document.getElementById("ram");
-const total=document.getElementById("total");
+const storage=document.getElementById("storage");
 
-function calc(){
-  let t=0;
-  document.querySelectorAll("select").forEach(s=>t+=Number(s.value||0));
-  total.innerText=t;
+const total =
+Number(cpu.value)+Number(gpu.value)+Number(ram.value)+Number(storage.value);
+document.getElementById("total").innerText=total;
+
+const cpuRam=cpu.options[cpu.selectedIndex].dataset.ram;
+const ramType=ram.options[ram.selectedIndex].dataset.type;
+
+document.getElementById("compat").innerText =
+(cpuRam!==ramType) ? "⚠ DDR4/DDR5 is niet compatibel met deze CPU" : "";
+
+document.getElementById("whatsapp").href =
+"https://wa.me/32494938460?text=Custom%20PC%20offerte%20€"+total;
 }
 
-function filterRam(){
-  const need=cpu.options[cpu.selectedIndex].dataset.ram;
-  [...ram.options].forEach(o=>{
-    if(!o.dataset.type) return;
-    o.disabled=o.dataset.type!==need;
-  });
-  ram.value=0;
+function applyPreset(p){
+if(p==="starter"){
+select("7600X","5070","32GB DDR5","1TB");
+}
+if(p==="pro"){
+select("7800X3D","5080","32GB DDR5","2TB");
+}
+if(p==="extreme"){
+select("9800X3D","5090","64GB DDR5","4TB");
+}
+if(p==="ai"){
+select("9950X","5090","128GB DDR5","4TB");
+}
+updatePrice();
 }
 
-function presetGaming(){
-cpu.value="400";
-gpu.value="899";
-ram.value="479";
-ssd.value="200";
-filterRam();calc();
+function select(cpuTxt,gpuTxt,ramTxt,storTxt){
+[...cpu.options].find(o=>o.text.includes(cpuTxt)).selected=true;
+[...gpu.options].find(o=>o.text.includes(gpuTxt)).selected=true;
+[...ram.options].find(o=>o.text.includes(ramTxt)).selected=true;
+[...storage.options].find(o=>o.text.includes(storTxt)).selected=true;
 }
 
-function presetPerformance(){
-cpu.value="540";
-gpu.value="1799";
-ram.value="899";
-ssd.value="350";
-filterRam();calc();
+function order(){
+window.location.href="bestel.html?custom=true&price="+total.innerText;
 }
 
-function presetBalanced(){
-cpu.value="240";
-gpu.value="660";
-ram.value="299";
-ssd.value="120";
-filterRam();calc();
-}
+updatePrice();
 </script>
 
 </body>
