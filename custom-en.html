@@ -190,6 +190,10 @@ select{
 <option value="420">4TB NVMe (€420)</option>
 </select>
 
+<p style="color:#555">
+Includes €300 for case, motherboard, PSU, cooling & professional assembly
+</p>
+
 <div class="price">Total: €<span id="total">0</span></div>
 <p id="compat" class="warning"></p>
 
@@ -200,15 +204,22 @@ select{
 </section>
 
 <script>
+const ASSEMBLY_COST = 300;
 function updatePrice(){
 const cpu=document.getElementById("cpu");
 const gpu=document.getElementById("gpu");
 const ram=document.getElementById("ram");
 const storage=document.getElementById("storage");
 
-const total =
-Number(cpu.value)+Number(gpu.value)+Number(ram.value)+Number(storage.value);
-document.getElementById("total").innerText=total;
+const subtotal =
+Number(cpu.value) +
+Number(gpu.value) +
+Number(ram.value) +
+Number(storage.value);
+
+const total = subtotal + ASSEMBLY_COST;
+
+document.getElementById("total").innerText = total;
 
 const cpuRam=cpu.options[cpu.selectedIndex].dataset.ram;
 const ramType=ram.options[ram.selectedIndex].dataset.type;
