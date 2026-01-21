@@ -1,0 +1,88 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Complete Order | PC Builds Belgium</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+  font-family:Arial;
+  background:#f4f7fb;
+  padding:40px;
+}
+.card{
+  background:white;
+  max-width:700px;
+  margin:auto;
+  padding:40px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+h2{text-align:center}
+.row{
+  display:flex;
+  justify-content:space-between;
+  margin:10px 0;
+}
+.total{
+  font-size:22px;
+  font-weight:bold;
+  margin-top:20px;
+}
+.btn{
+  display:inline-block;
+  background:#2563eb;
+  color:white;
+  padding:14px 22px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+  margin-top:20px;
+}
+.notice{
+  font-size:14px;
+  color:#555;
+  margin-top:15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h2>🧾 Order Summary</h2>
+
+<div class="row"><span>CPU</span><span id="cpu"></span></div>
+<div class="row"><span>GPU</span><span id="gpu"></span></div>
+<div class="row"><span>RAM</span><span id="ram"></span></div>
+<div class="row"><span>Storage</span><span id="ssd"></span></div>
+
+<hr>
+
+<div class="row total">
+  <span>Total</span>
+  <span>€<span id="total"></span></span>
+</div>
+
+<p class="notice">
+✔ Prepayment required<br>
+✔ 1-year warranty<br>
+✔ Delivery at buyer’s responsibility
+</p>
+
+<a href="bedankt.html" class="btn">Confirm Order</a>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+document.getElementById("cpu").innerText = params.get("cpu") || "—";
+document.getElementById("gpu").innerText = params.get("gpu") || "—";
+document.getElementById("ram").innerText = params.get("ram") || "—";
+document.getElementById("ssd").innerText = params.get("ssd") || "—";
+document.getElementById("total").innerText = params.get("total") || "0";
+</script>
+
+</body>
+</html>
