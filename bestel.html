@@ -7,7 +7,7 @@
 
 <style>
 body{
-  font-family:Arial, sans-serif;
+  font-family:Arial;
   background:#f4f7fb;
   padding:40px;
 }
@@ -19,103 +19,78 @@ body{
   border-radius:16px;
   box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
-h2{
-  text-align:center;
-  margin-bottom:30px;
-}
+h2{text-align:center}
 .row{
   display:flex;
   justify-content:space-between;
   margin:12px 0;
 }
-.hr{
-  margin:25px 0;
-  border-top:1px solid #e5e7eb;
-}
 .total{
-  font-size:22px;
+  font-size:24px;
   font-weight:bold;
-}
-.small{
-  font-size:14px;
-  color:#555;
+  margin-top:20px;
 }
 .btn{
-  display:block;
+  display:inline-block;
   background:#2563eb;
   color:white;
-  padding:16px;
-  border-radius:10px;
+  padding:14px 22px;
+  border-radius:8px;
   text-decoration:none;
   font-weight:bold;
-  text-align:center;
-  margin-top:25px;
+  margin-top:20px;
 }
 .notice{
   font-size:14px;
   color:#555;
-  margin-top:20px;
+  margin-top:15px;
 }
+hr{margin:20px 0}
 </style>
 </head>
 
 <body>
 
 <div class="card">
-  <h2>🧾 Order Summary</h2>
+<h2>🧾 Order Summary</h2>
 
-  <div class="row"><span>CPU</span><span id="cpu">—</span></div>
-  <div class="row"><span>GPU</span><span id="gpu">—</span></div>
-  <div class="row"><span>RAM</span><span id="ram">—</span></div>
-  <div class="row"><span>Storage</span><span id="ssd">—</span></div>
+<div class="row"><span>CPU</span><span id="cpu"></span></div>
+<div class="row"><span>GPU</span><span id="gpu"></span></div>
+<div class="row"><span>Memory</span><span id="ram"></span></div>
+<div class="row"><span>Storage</span><span id="ssd"></span></div>
 
-  <div class="hr"></div>
+<hr>
 
-  <div class="row">
-    <span>Components subtotal</span>
-    <span>€<span id="subtotal">0</span></span>
-  </div>
+<div class="row"><span>Parts total</span><span>€<span id="parts"></span></span></div>
+<div class="row"><span>Assembly & service</span><span>€<span id="service"></span></span></div>
 
-  <div class="row">
-    <span>Assembly & service</span>
-    <span>€60</span>
-  </div>
+<hr>
 
-  <div class="hr"></div>
+<div class="row total">
+  <span>Total</span>
+  <span>€<span id="total"></span></span>
+</div>
 
-  <div class="row total">
-    <span>Total price</span>
-    <span>€<span id="total">0</span></span>
-  </div>
+<p class="notice">
+✔ Prepayment required<br>
+✔ 1-year hardware warranty<br>
+✔ Delivery at buyer’s responsibility
+</p>
 
-  <p class="notice">
-    ✔ Prepayment required<br>
-    ✔ 1-year hardware warranty<br>
-    ✔ Custom-built system – no right of withdrawal
-  </p>
-
-  <a href="bedankt.html" class="btn">Confirm Order</a>
+<a href="thankyou-en.html" class="btn">Confirm Order</a>
 </div>
 
 <script>
 const params = new URLSearchParams(window.location.search);
 
-const cpu   = params.get("cpu")   || "—";
-const gpu   = params.get("gpu")   || "—";
-const ram   = params.get("ram")   || "—";
-const ssd   = params.get("ssd")   || "—";
-const base  = Number(params.get("total")) || 0;
+document.getElementById("cpu").innerText = params.get("cpu") || "—";
+document.getElementById("gpu").innerText = params.get("gpu") || "—";
+document.getElementById("ram").innerText = params.get("ram") || "—";
+document.getElementById("ssd").innerText = params.get("ssd") || "—";
 
-const assembly = 60;
-const finalTotal = base + assembly;
-
-document.getElementById("cpu").innerText = cpu;
-document.getElementById("gpu").innerText = gpu;
-document.getElementById("ram").innerText = ram;
-document.getElementById("ssd").innerText = ssd;
-
-document.getElementById("subtotal").innerText = base;
-document.getElementById("total").innerText = finalTotal;
+document.getElementById("parts").innerText = params.get("parts") || "0";
+document.getElementById("service").innerText = params.get("service") || "60";
+document.getElementById("total").innerText = params.get("total") || "0";
 </script>
 
 </body>
