@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Home | PC Builds Belgium</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f4f7fb;
+  color:#0f172a;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,#020617,#0b3c5d);
+  color:white;
+  padding:70px 20px;
+  text-align:center;
+}
+
+/* NAV */
+nav{
+  background:#020617;
+  padding:14px;
+  text-align:center;
+}
+nav a{
+  color:white;
+  margin:0 15px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* CONTENT */
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:50px 20px;
+}
+
+.card{
+  background:white;
+  padding:40px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,.12);
+  margin-bottom:40px;
+}
+
+/* SLIDER */
+.slider{
+  position:relative;
+  width:100%;
+  height:320px;
+  overflow:hidden;
+  border-radius:16px;
+  margin-top:30px;
+}
+.slide{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity 1s;
+}
+.slide.active{
+  opacity:1;
+}
+
+/* REVIEWS */
+.review{
+  margin-top:20px;
+  padding:20px;
+  background:#f1f5f9;
+  border-radius:12px;
+}
+
+/* FOOTER */
+footer{
+  background:#020617;
+  color:white;
+  padding:50px 20px;
+}
+.footer-grid{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+footer h3{
+  color:#60a5fa;
+  margin-top:0;
+}
+footer a{
+  color:#93c5fd;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>PC Builds Belgium</h1>
+  <p>Gaming PCs • Workstations • Custom-built systems</p>
+</header>
+
+<nav>
+  <a href="home-en.html">Home</a>
+  <a href="index-en.html">Shop</a>
+  <a href="custom-en.html">Custom PC</a>
+  <a href="voorwaarden-en.html">Terms & Conditions</a>
+</nav>
+
+<section>
+
+  <div class="card">
+    <h2>Welcome</h2>
+    <p>
+      We build powerful and reliable custom PCs for gaming,
+      professional work, and demanding applications. Every PC
+      is carefully assembled, tested, and built using quality components.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Our builds</h2>
+    <p>
+      Below you will soon find photos of real customer builds
+      and special projects.
+    </p>
+
+    <div class="slider">
+      <img src="fotos/pc1.jpg" class="slide active" alt="ZYNX PC build">
+      <img src="fotos/pc1.jpg" class="slide" alt="ZYNX PC build">
+      <img src="fotos/pc1.jpg" class="slide" alt="ZYNX PC build">
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Why choose us?</h2>
+    <ul>
+      <li>✔ Custom-built PCs</li>
+      <li>✔ Honest advice & fixed pricing</li>
+      <li>✔ Gaming & professional systems</li>
+      <li>✔ 1-year warranty</li>
+      <li>✔ Prepayment = no surprises</li>
+    </ul>
+  </div>
+
+<section style="max-width:1200px;margin:auto;padding:40px">
+<h2 style="text-align:center">⭐ Customer Reviews</h2>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;margin-top:30px">
+
+<div style="background:white;padding:25px;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,.12)">
+<p>⭐⭐⭐⭐⭐</p>
+<p>“Ordered the Gaming PC Pro. Everything neatly built and super quiet. Highly recommended.”</p>
+<b>— Tom D.</b>
+</div>
+
+<div style="background:white;padding:25px;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,.12)">
+<p>⭐⭐⭐⭐⭐</p>
+<p>“Great communication via WhatsApp. PC works perfectly for school and gaming.”</p>
+<b>— Alex V.</b>
+</div>
+
+<div style="background:white;padding:25px;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,.12)">
+<p>⭐⭐⭐⭐⭐</p>
+<p>“Custom PC built exactly as agreed and delivered quickly.”</p>
+<b>— Kevin S.</b>
+</div>
+
+</div>
+
+<p style="text-align:center;margin-top:25px;font-size:14px;color:#555">
+Reviews from early customers and testers
+</p>
+</section>
+
+<footer>
+  <div class="footer-grid">
+
+    <div>
+      <h3>Contact</h3>
+      <p>
+        📧 computerbuilderzynx@gmail.com<br>
+        📱 +32 494 93 84 60 (WhatsApp)
+      </p>
+    </div>
+
+    <div>
+      <h3>PC Builds Belgium</h3>
+      <p>
+        Custom computers<br>
+        Gaming & Workstations<br>
+        Belgium
+      </p>
+    </div>
+
+    <div>
+      <h3>Info</h3>
+      <p>
+        <a href="voorwaarden-en.html">Terms & Conditions</a><br>
+        Warranty: 1 year<br>
+        Prepayment required
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+let current = 0;
+const slides = document.querySelectorAll(".slide");
+
+setInterval(() => {
+  slides[current].classList.remove("active");
+  current = (current + 1) % slides.length;
+  slides[current].classList.add("active");
+}, 4000);
+</script>
+
+</body>
+</html>
