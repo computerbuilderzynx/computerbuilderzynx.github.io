@@ -4,39 +4,114 @@
 <meta charset="UTF-8">
 <title>Custom PC | PC Builds Belgium</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
-body{margin:0;font-family:Arial;background:#f4f7fb}
-.topbar{background:#020617;padding:10px 20px;text-align:right}
-.topbar a{color:white;text-decoration:none;font-weight:bold;margin-left:10px}
-header{background:linear-gradient(135deg,#020617,#0b3c5d);color:white;padding:50px 20px;text-align:center}
-nav{background:#020617;padding:15px;text-align:center}
-nav a{color:white;margin:0 15px;text-decoration:none;font-weight:bold}
-section{max-width:1000px;margin:auto;padding:40px 20px}
-.card{background:white;padding:35px;border-radius:20px;box-shadow:0 15px 40px rgba(0,0,0,.15)}
-label{display:block;font-weight:bold;margin-top:20px}
-select{width:100%;padding:14px;border-radius:10px;margin-top:8px}
-.price{font-size:36px;font-weight:bold;color:#2563eb;margin:30px 0}
-.btn{background:#2563eb;color:white;padding:16px 26px;border-radius:12px;text-decoration:none;font-weight:bold;display:inline-block;margin-right:10px}
+body{margin:0;font-family:Arial;background:#f4f7fb;color:#0f172a}
+
+/* TOPBAR */
+.topbar{
+  background:#020617;
+  padding:10px 20px;
+  text-align:right
+}
+.topbar a{
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  margin-left:10px
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,#020617,#0b3c5d);
+  color:white;
+  padding:50px 20px;
+  text-align:center
+}
+
+/* NAV */
+nav{
+  background:#020617;
+  padding:15px;
+  text-align:center
+}
+nav a{
+  color:white;
+  margin:0 15px;
+  text-decoration:none;
+  font-weight:bold
+}
+
+/* CONTENT */
+section{
+  max-width:1000px;
+  margin:auto;
+  padding:40px 20px
+}
+.card{
+  background:white;
+  padding:35px;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,.15)
+}
+
+label{
+  display:block;
+  font-weight:bold;
+  margin-top:20px
+}
+select{
+  width:100%;
+  padding:14px;
+  border-radius:10px;
+  margin-top:8px
+}
+
+.price{
+  font-size:36px;
+  font-weight:bold;
+  color:#2563eb;
+  margin:30px 0
+}
+
+.btn{
+  background:#2563eb;
+  color:white;
+  padding:16px 26px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:bold;
+  display:inline-block;
+  margin-right:10px
+}
 .whatsapp{background:#25D366}
-.warning{color:#dc2626;font-weight:bold;margin-top:15px}
+
+.warning{
+  color:#dc2626;
+  font-weight:bold;
+  margin-top:15px
+}
 </style>
 </head>
 
 <body>
 
 <div class="topbar">
-<a href="custom.html">NL</a> | <a href="custom-en.html">EN</a>
+  <a href="custom.html">🇳🇱 Nederlands</a>
+  <a href="custom-en.html">🇬🇧 English</a>
 </div>
 
 <header>
-<h1>🛠️ Build Your Custom PC</h1>
-<p>Maximum choice – professionally assembled</p>
+  <h1>🛠️ Build Your Custom PC</h1>
+  <p>Maximum choice – professionally assembled</p>
 </header>
 
 <nav>
-<a href="index-en.html">Shop</a>
-<a href="custom-en.html">Custom PC</a>
-<a href="voorwaarden-en.html">Terms & Conditions</a>
+  <a href="home-en.html">Home</a>
+  <a href="index-en.html">Shop</a>
+  <a href="custom-en.html">Custom PC</a>
+  <a href="custom.html">NL Version</a>
+  <a href="voorwaarden-en.html">Terms & Conditions</a>
 </nav>
 
 <section>
@@ -46,7 +121,7 @@ select{width:100%;padding:14px;border-radius:10px;margin-top:8px}
 <select onchange="applyPreset(this.value)">
 <option value="">-- Choose preset --</option>
 <option value="starter">Gaming Starter</option>
-<option value="pro">Gaming Pro (best seller)</option>
+<option value="pro">Gaming Pro (Best Seller)</option>
 <option value="extreme">Gaming Extreme</option>
 <option value="ai">AI / Workstation</option>
 </select>
